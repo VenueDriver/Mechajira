@@ -1,0 +1,7 @@
+node:
+  build: .
+  volumes:
+    - .:/opt/code
+
+redis:
+  image: redis
