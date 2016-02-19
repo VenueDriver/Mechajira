@@ -2,7 +2,7 @@
 
 ![Mechagodzilla](https://upload.wikimedia.org/wikipedia/en/3/30/Mechagodzilla_Incarnations.jpg)
 
-Mechajira is a Ruby-based bot that responds to commands in JIRA comments.
+Mechajira is a Node-based bot that responds to commands in JIRA comments.
 
 ## Behavior Spec
 
@@ -21,3 +21,11 @@ And when I comment on that issue "/mechajira done, won't fix, seven days",
 And when I wait seven days,
 Then Mechajira should resolve the issue,
 And the resolution status should be set to "Won't Fix".
+
+## Usage
+
+### Prerequisites
+
+First, you need to create a user in your JIRA for Mechajira.
+
+First, you need a ```config/jira.yml``` file that contains your

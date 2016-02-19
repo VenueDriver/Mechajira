@@ -1,0 +1,18 @@
+{
+  "name": "mechajira",
+  "version": "0.1.0",
+  "description": "JIRA bot built with Node.js.",
+  "main": "mechajira.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VenueDriver/Mechajira.git"
+  },
+  "author": "Ryan Alyn Porter",
+  "bugs": {
+    "url": "https://github.com/VenueDriver/Mechajira/issues"
+  },
+  "homepage": "https://github.com/VenueDriver/Mechajira",
+  "devDependencies": {
+    "jira-connector":"1.11.0"
+  }
+}
