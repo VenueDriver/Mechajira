@@ -1,12 +1,12 @@
-config = require('./config/jira.json')
+# config = require('./config/jira.yml')
 util = require('util')
 JiraClient = require('jira-connector')
 jira = new JiraClient(
-  host: config.host
+  host: 'hakkasan.atlassian.net' 
   basic_auth:
-    username: config.username
-    password: config.password)
-jira.search.search { jql: 'comment ~ mechajira' }, (error, response) ->
+    username: 'mechajira',
+    password: 'iryu1999!')
+jira.search.search { jql: 'comment ~ ghost' }, (error, response) ->
   console.log 'Issues count: ' + util.inspect(response.issues.length)
   response.issues.forEach (issue) ->
     console.log 'Issue ID: ' + util.inspect(issue.id)
