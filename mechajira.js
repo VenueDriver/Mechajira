@@ -11,7 +11,8 @@ var jira = new JiraClient({
 });
 
 var project = 'MEC';
-var epic = 'MEC-13';
+var epic = 'MEC-90';
+var issueKeys = {};
 
 //////////////////////////////////////////////////////////////
 // Website Standard Task Bomb - Labeled Bytery, Clubs
@@ -44,11 +45,12 @@ jira.issue.createIssue(
       return;
     } else {
       var vipFormKey = issue.key;
-      console.log(`vipFormKey = ${vipFormKey}`);
+      //console.log(`vipFormKey = ${vipFormKey}`);
+      issueKeys.vipFormKey = vipFormKey;
+      console.log(issueKeys);
     }
   }
 );
-
 
 jira.issue.createIssue(
   {
@@ -77,7 +79,9 @@ jira.issue.createIssue(
       return;
     } else {
       var gitSetupKey = issue.key;
-      console.log(`gitSetupKey = ${gitSetupKey}`);
+      //console.log(`gitSetupKey = ${gitSetupKey}`);
+      issueKeys.gitSetupKey = gitSetupKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -109,7 +113,9 @@ jira.issue.createIssue(
       return;
     } else {
       var defaultTitleDescKey = issue.key;
-      console.log(`defaultTitleDescKey = ${defaultTitleDescKey}`);
+      //console.log(`defaultTitleDescKey = ${defaultTitleDescKey}`);
+      issueKeys.defaultTitleDescKey = defaultTitleDescKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -141,7 +147,9 @@ jira.issue.createIssue(
       return;
     } else {
       var continuousPipeSetupKey = issue.key;
-      console.log(`continuousPipeSetupKey = ${continuousPipeSetupKey}`);
+      //console.log(`continuousPipeSetupKey = ${continuousPipeSetupKey}`);
+      issueKeys.continuousPipeSetupKey = continuousPipeSetupKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -173,7 +181,9 @@ jira.issue.createIssue(
       return;
     } else {
       var domainSetupKey = issue.key;
-      console.log(`domainSetupKey = ${domainSetupKey}`);
+      //console.log(`domainSetupKey = ${domainSetupKey}`);
+      issueKeys.domainSetupKey = domainSetupKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -204,7 +214,9 @@ jira.issue.createIssue(
       console.log(error);
     } else {
       var previewImageKey = issue.key;
-      console.log(`previewImageKey = ${previewImageKey}`);
+      //console.log(`previewImageKey = ${previewImageKey}`);
+      issueKeys.previewImageKey = previewImageKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -236,7 +248,9 @@ jira.issue.createIssue(
       return;
     } else {
       var facebookOgKey = issue.key;
-      console.log(`facebookOgKey = ${facebookOgKey}`);
+      //console.log(`facebookOgKey = ${facebookOgKey}`);
+      issueKeys.facebookOgKey = facebookOgKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -268,7 +282,9 @@ jira.issue.createIssue(
       return;
     } else {
       var twitterCardKey = issue.key;
-      console.log(`twitterCardKey = ${twitterCardKey}`);
+      //console.log(`twitterCardKey = ${twitterCardKey}`);
+      issueKeys.twitterCardKey = twitterCardKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -300,7 +316,9 @@ jira.issue.createIssue(
       return;
     } else {
       var heroBannerKey = issue.key;
-      console.log(`heroBannerKey = ${heroBannerKey}`);
+      //console.log(`heroBannerKey = ${heroBannerKey}`);
+      issueKeys.heroBannerKey = heroBannerKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -332,7 +350,9 @@ jira.issue.createIssue(
       return;
     } else {
       var trackingTagsKey = issue.key;
-      console.log(`trackingTagsKey = ${trackingTagsKey}`);
+      //console.log(`trackingTagsKey = ${trackingTagsKey}`);
+      issueKeys.trackingTagsKey = trackingTagsKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -364,7 +384,9 @@ jira.issue.createIssue(
       return;
     } else {
       var venueDriverKey = issue.key;
-      console.log(`venueDriverKey = ${venueDriverKey}`);
+      //console.log(`venueDriverKey = ${venueDriverKey}`);
+      issueKeys.venueDriverKey = venueDriverKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -396,7 +418,9 @@ jira.issue.createIssue(
       return;
     } else {
       var marketoFormKey = issue.key;
-      console.log(`marketoFormKey = ${marketoFormKey}`);
+      //console.log(`marketoFormKey = ${marketoFormKey}`);
+      issueKeys.marketoFormKey = marketoFormKey;
+      console.log(issueKeys);
     }
   }
 );
@@ -428,7 +452,9 @@ jira.issue.createIssue(
       return;
     } else {
       var brandOnTicketPageKey = issue.key;
-      console.log(`brandOnTicketPageKey = ${brandOnTicketPageKey}`);
+      issueKeys.brandOnTicketPageKey = brandOnTicketPageKey;
+      console.log(issueKeys);
+      //console.log(`brandOnTicketPageKey = ${brandOnTicketPageKey}`);
     }
   }
 );
@@ -460,7 +486,9 @@ jira.issue.createIssue(
       return;
     } else {
       var brandInDatabaseKey = issue.key;
-      console.log(`brandInDatabaseKey = ${brandInDatabaseKey}`);
+      issueKeys.brandInDatabaseKey = brandInDatabaseKey;
+      console.log(issueKeys);
+      //console.log(`brandInDatabaseKey = ${brandInDatabaseKey}`);
     }
   }
 );
@@ -492,7 +520,9 @@ jira.issue.createIssue(
       return;
     } else {
       var announcementBlogPostKey = issue.key;
-      console.log(`announcementBlogPostKey = ${announcementBlogPostKey}`);
+      issueKeys.announcementBlogPostKey = announcementBlogPostKey;
+      console.log(issueKeys);
+      //console.log(`announcementBlogPostKey = ${announcementBlogPostKey}`);
     }
   }
 );
@@ -524,10 +554,13 @@ jira.issue.createIssue(
       return;
     } else {
       var emailAnnouncementKey = issue.key;
-      console.log(`emailAnnouncementKey = ${emailAnnouncementKey}`);
+      issueKeys.emailAnnouncementKey = emailAnnouncementKey;
+      console.log(issueKeys);
+      //console.log(`emailAnnouncementKey = ${emailAnnouncementKey}`);
     }
   }
 );
+
 
 ////////////////////////////////
 // CREATE EPIC
