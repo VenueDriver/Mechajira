@@ -1,6 +1,5 @@
 var config = require('./config/jira.json');
 var util = require('util');
-
 var JiraClient = require('jira-connector');
 
 var jira = new JiraClient({
@@ -11,73 +10,56 @@ var jira = new JiraClient({
   }
 });
 
-////////////////////////////////
-// GET ISSUE
-////////////////////////////////
-// jira.issue.getIssue({
-//   issueKey: 'WET-19'
-// }, function(error, issue) {
-//   if (error) {
-//    console.log(error);
-//    return;
-//   }
-//   // console.log(issue);
-//   console.log(issue.fields.summary);
-// });
+var project = 'MEC';
+var epic = 'MEC-13';
 
 ////////////////////////////////
-// JIRA SEARCH
+// CREATE ISSUES
 ////////////////////////////////
-// jira.search.search({
-//   jql: 'comment ~ ghost'
-// }, function(error, response) {
-//      if (error) {
-//        console.log(error);
-//        return;
-//      }
-//      console.log('Issues count: ' + util.inspect(response.issues.length));
-//      response.issues.forEach(function(issue) {
-//        console.log('Issue ID: ' + util.inspect(issue.id));
-//        console.log('Issue key: ' + util.inspect(issue.key));
-//        console.log('Status: ' + issue.fields.status.name);
-//        jira.issue.getComments({
-//          issueKey: issue.key
-//        }, function(error, response) {
-//             console.log('Comment count: ', util.inspect(response.comments.length));
-//             response.comments.forEach(function(comment) {
-//               console.log('Comment ID: ' + util.inspect(comment.id));
-//               console.log('Comment: ' + util.inspect(comment.body));
-//             });
-//           });
-//       });
-// });
-
-////////////////////////////////
-// TRANSITION > Start Progress
-////////////////////////////////
-// jira.issue.transitionIssue({
-//   issueKey: 'STACK-36',
-//   transition: '11'
-// }, function(error, issue) {
-//   if (error) {
-//    console.log(error);
-//    return;
-//   }
-//   // console.log(issue);
-//   console.log(issue.fields);
-// });
-
-////////////////////////////////
-// CLOSE ISSUE
-////////////////////////////////
-jira.issue.transitionIssue({
-  issueKey: 'MEC-3',
-  transition: '3'
+jira.issue.createIssue({
+  "fields": {
+       "project":
+       {
+          "key": project
+       },
+       "summary": "Ava task inside Test Epic",
+       "description": "Adding task to Epic 'Test Bombing Epic'",
+       "issuetype": {
+          "name": "Task"
+       },
+       "customfield_10008": epic    // Epic within which to create task
+   }
 }, function(error, issue) {
   if (error) {
    console.log(error);
    return;
   }
-  // console.log(issue);
   console.log(issue);
 });
+
+
+
+
+////////////////////////////////
+// CREATE EPIC
+////////////////////////////////
+// jira.issue.createIssue({
+//   "fields": {
+//        "project":
+//        {
+//           "key": "MEC"
+//        },
+//        "summary": "Test Epic",
+//        "description": "Creating test epic for test bulk task bombing runs...",
+//        "issuetype": {
+//           "name": "Epic"
+//        },
+//        "customfield_10009": "Test Bombing Epic"    // Epic name is required
+//    }
+// }, function(error, issue) {
+//   if (error) {
+//    console.log(error);
+//    return;
+//   }
+//   console.log(issue);
+// });
