@@ -21,6 +21,7 @@ var issueKeys = {};
 //////////////////////////////////////////////////////////////
 
 var bombsAway = function(project, epic) {
+  console.log("Creating issues...");
   async.parallel({
     vipFormKey: function(callback) {
       jira.issue.createIssue(
@@ -534,9 +535,90 @@ var bombsAway = function(project, epic) {
         })
       }
   },
-  function(err, results) {
-      console.log(results);
+  function(err, issueKeys) {
+    console.log('Successfuly creates issues with the following Keys:');
+    console.log(issueKeys);
+    linkIssues(issueKeys);
   });
+};
+
+var linkIssues = function(issueKeys) {
+  console.log('Linking issues...');
+  jira.issueLink.createIssueLink(
+    {
+      "issueLink": {
+        "type": {
+            "name": "Blocks"
+        },
+        "inwardIssue": {
+            "key": issueKeys.previewImageKey
+        },
+        "outwardIssue": {
+            "key": issueKeys.twitterCardKey
+        },
+        "comment": {
+            "body": "Can't create Twitter Card image tag until preview image is set",
+        }
+      }
+    },
+    function(error, result) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        console.log(result);
+      }
+    });
+    jira.issueLink.createIssueLink(
+      {
+        "issueLink": {
+          "type": {
+              "name": "Blocks"
+          },
+          "inwardIssue": {
+              "key": issueKeys.previewImageKey
+          },
+          "outwardIssue": {
+            "key": issueKeys.facebookOgKey
+          },
+          "comment": {
+            "body": "Can't create Facebook OG image tag until preview image is set",
+          }
+        }
+      },
+      function(error, result) {
+        if (error) {
+          console.log(error);
+          return;
+        } else {
+          console.log(result);
+        }
+      });
+      jira.issueLink.createIssueLink(
+        {
+          "issueLink": {
+            "type": {
+                "name": "Relates"
+            },
+            "inwardIssue": {
+              "key": issueKeys.previewImageKey
+            },
+            "outwardIssue": {
+              "key": issueKeys.heroBannerKey
+            },
+            "comment": {
+                "body": "Preview image and Hero banner are usually the same image, but maybe different sizes",
+            }
+          }
+        },
+        function(error, result) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            console.log(result);
+          }
+        });
 };
 
 bombsAway(project, epic);
