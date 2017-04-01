@@ -16,10 +16,7 @@ var project = 'MEC';
 var epic = 'MEC-90';
 var issueKeys = {};
 
-//////////////////////////////////////////////////////////////
-// Website Standard Task Bomb - Labeled Bytery, Clubs
-//////////////////////////////////////////////////////////////
-
+// DEFINE INITIAL TASK BOMB
 var bombsAway = function(project, epic) {
   console.log("Creating issues...");
   async.parallel({
@@ -28,21 +25,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "VIP Tables Form",
              "description": "Adding task to Epic 'Test Bombing Epic'",
              "issuetype": {
-                "name": "Task"
+               "name": "Task"
              }
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -60,21 +52,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Git Project Setup",
              "description": "Initialize Git repository and host it on GitHub.",
              "issuetype": {
-                "name": "Task"
+               "name": "Task"
              }
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -92,21 +79,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Select default title, description",
              "description": "Select the title and description that will be used throughout the site. Should be 150 to 160 characters each.",
              "issuetype": {
-                "name": "Task"
+               "name": "Task"
              }
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery","clubs"]
            }
         },
         function(error, issue) {
@@ -124,21 +106,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Continuous delivery pipeline",
              "description": "Set up a continuous delivery pipeline for both a staging site and a production site.",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "dnorrbom"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "dnorrbom"},
+            //  "labels": ["the-bytery", "clubs"]
           }
         },
         function(error, issue) {
@@ -156,21 +133,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Domain name setup",
              "description": "Set up the domain name AND sub-domain for staging.",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "dnorrbom"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "dnorrbom"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -183,26 +155,48 @@ var bombsAway = function(project, epic) {
           }
         })
     },
+    heroBannerKey: function(callback) {
+      jira.issue.createIssue(
+        {
+          "fields": {
+             "project": {
+               "key": project
+             },
+             "customfield_10008": epic,   // Epic within which to create task
+             "summary": "Hero Banner",
+             "description": "",
+             "issuetype": {
+               "name": "Task"
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
+           }
+        },
+        function(error, issue) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            var heroBannerKey = issue.key;
+            callback(null, heroBannerKey);
+          }
+        })
+    },
     previewImageKey: function(callback) {
       jira.issue.createIssue(
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Preview image for social media",
              "description": "Design an image for use in previews for Facebook, Twitter, Apple Messenger, etc.",
              "issuetype": {
                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
           }
         },
         function(error, issue) {
@@ -219,21 +213,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Facebook Open Graph Tags",
              "description": "Set up Facebook Open Graph tags using the standard page title and description and the social media preview image.",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -251,21 +240,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Twitter Card Tags",
              "description": "Set up Twitter cards using the standard page title and description and the social media preview image.",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -278,58 +262,21 @@ var bombsAway = function(project, epic) {
           }
         })
     },
-    heroBannerKey: function(callback) {
-      jira.issue.createIssue(
-        {
-          "fields": {
-             "project": {
-                "key": project
-             },
-             "customfield_10008": epic,   // Epic within which to create task
-             "summary": "Hero Banner",
-             "description": "",
-             "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
-           }
-        },
-        function(error, issue) {
-          if (error) {
-            console.log(error);
-            return;
-          } else {
-            var heroBannerKey = issue.key;
-            callback(null, heroBannerKey);
-          }
-        })
-    },
     trackingTagsKey: function(callback) {
       jira.issue.createIssue(
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Setup Tracking Tags",
              "description": "Get the Tag Manager container ID from the Google Tag Master and set up the snippet in the site pages. Also add the standard tags listed at https://hakkasan.atlassian.net/wiki/display/WT/Google+Tag+Manager",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "mgarcia"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "mgarcia"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -347,21 +294,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Venue Driver ID",
              "description": "",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "dnorrbom"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "dnorrbom"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -379,21 +321,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Marketo Form",
              "description": "",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -411,21 +348,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Branding on Ticketing Page",
              "description": "",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -443,21 +375,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Create Artist Brand in Database",
              "description": "",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "fgalan"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "fgalan"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -475,21 +402,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Announcement Blog Post",
              "description": "Create blog post to notify ALL stakeholders of coming website.",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "jhand"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "jhand"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -507,21 +429,16 @@ var bombsAway = function(project, epic) {
         {
           "fields": {
              "project": {
-                "key": project
+               "key": project
              },
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Email Announcement to Stakeholders",
              "description": "Send email to ALL stakeholders with blog post content",
              "issuetype": {
-                "name": "Task"
-             },
-            //  "assignee": {
-            //    "name": "jhand"
-            //  },
-            //  "labels": [
-            //    "the-bytery",
-            //    "clubs"
-            //  ]
+               "name": "Task"
+             }
+            //  "assignee": {"name": "jhand"},
+            //  "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -533,32 +450,566 @@ var bombsAway = function(project, epic) {
             callback(null, emailAnnouncementKey);
           }
         })
+    },
+    finalMarketingApprovalKey: function(callback) {
+      jira.issue.createIssue(
+        {
+          "fields": {
+             "project": {
+               "key": project
+             },
+             "customfield_10008": epic,   // Epic within which to create task
+             "summary": "Final Marketing Approval",
+             "description": "Mark this approved once the key stakeholders in Marketing all agree that it's approved.",
+             "issuetype": {
+               "name": "Task"
+             }
+            //  "assignee": {"name": "jhand"},
+            //  "labels": ["the-bytery", "clubs"]
+           }
+        },
+        function(error, issue) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            var finalMarketingApprovalKey = issue.key;
+            callback(null, finalMarketingApprovalKey);
+          }
+        })
+    },
+    finalTechnicalApprovalKey: function(callback) {
+      jira.issue.createIssue(
+        {
+          "fields": {
+             "project": {
+               "key": project
+             },
+             "customfield_10008": epic,   // Epic within which to create task
+             "summary": "Final Technical Approval",
+             "description": "This will be approved once the QA checklist passes.",
+             "issuetype": {
+               "name": "Task"
+             }
+            //  "assignee": {"name": "jhand"},
+            //  "labels": ["the-bytery", "clubs"]
+           }
+        },
+        function(error, issue) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            var finalTechnicalApprovalKey = issue.key;
+            callback(null, finalTechnicalApprovalKey);
+          }
+        })
+    },
+    finalCreativeApprovalKey: function(callback) {
+      jira.issue.createIssue(
+        {
+          "fields": {
+             "project": {
+               "key": project
+             },
+             "customfield_10008": epic,   // Epic within which to create task
+             "summary": "Final Creative Approval",
+             "description": "",
+             "issuetype": {
+               "name": "Task"
+             }
+            //  "assignee": {"name": "jhand"},
+            //  "labels": ["the-bytery", "clubs"]
+           }
+        },
+        function(error, issue) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            var finalCreativeApprovalKey = issue.key;
+            callback(null, finalCreativeApprovalKey);
+          }
+        })
       }
-  },
-  function(err, issueKeys) {
-    console.log('Successfuly creates issues with the following Keys:');
-    console.log(issueKeys);
-    linkIssues(issueKeys);
-  });
-};
+    },
+    function(err, issueKeys) {
+      console.log('Successfuly created issues with the following Keys:');
+      console.log(issueKeys);
+      createTechQaSubtasks(project, issueKeys.finalTechnicalApprovalKey);
+      createTrackingTagSubtasks(project, issueKeys.trackingTagsKey);
+      linkIssues(issueKeys);
+    });
+}
 
+// FUNCTION TO CREATE QA SUBTASKS UNDER "Final Technical Approval" APPROVAL ISSUE
+var createTechQaSubtasks = function(project, parent) {
+  console.log('Creating Tech QA Sub-tasks...');
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Passes Google Mobile-Friendly Test",
+        "description": "Submit page/site URL to Google's Mobile-Friendly Test tool at https://www.google.com/webmasters/tools/mobile-friendly/Paste a link to the results page in the comments below when complete.",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaMobileFriendlyKey = issue.key;
+        issueKeys.techQaMobileFriendlyKey = techQaMobileFriendlyKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Validate HTML",
+        "description": "Submit the page/site URL to the HTML Validator tool found at https://validator.w3.org/Paste a link to the results page in the comments below when complete.",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaValidateHtmlKey = issue.key;
+        issueKeys.techQaValidateHtmlKey = techQaValidateHtmlKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "DRY",
+        "description": "Don't Repeat Yourself (with code)",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaDryKey = issue.key;
+        issueKeys.techQaDryKey = techQaDryKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Check Cross-browser Compatibility with Browserstack",
+        "description": "Browserstack.com (must support iOS 5.1+, iPhone, iPhone 6+, iPad)",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaBrowserstackKey = issue.key;
+        issueKeys.techQaBrowserstackKey = techQaBrowserstackKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "robots.txt/site map",
+        "description": "",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaRobotsKey = issue.key;
+        issueKeys.techQaRobotsKey = techQaRobotsKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Twitter Card",
+        "description": "Submit page/site URL to Twitter's card validator located at https://cards-dev.twitter.com/validator. You will need to 'Request Approval' to get on the 'whitelist' before the validator will work. Make sure the proper graphic appears in the twitter card. Paste a link to the results page in the comments below when complete and upload a screenshot of the card in the Attachments section below.",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaTwitterCardKey = issue.key;
+        issueKeys.techQaTwitterCardKey = techQaTwitterCardKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Facebook Open Graph meta tags",
+        "description": "Check that Facebook OG meta tags provide the proper information using https://developers.facebook.com/tools/debug/. Paste a link to the results page in the comments below when complete.",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaFacebookOgKey = issue.key;
+        issueKeys.techQaFacebookOgKey = techQaFacebookOgKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Title and Description tags",
+        "description": "Should be 150 to 160 characters each.",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaTitleDescriptionKey = issue.key;
+        issueKeys.techQaTitleDescriptionKey = techQaTitleDescriptionKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Google Tag Manager container",
+        "description": "Make sure Container ID in source code matches ID in GTM console and tags are setup according to tag policy at https://hakkasan.atlassian.net/wiki/display/WT/Google+Tag+Manager",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaGtmSetupKey = issue.key;
+        issueKeys.techQaGtmSetupKey = techQaGtmSetupKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Tag Inspector Audit",
+        "description": "Submit URL to the Tag Inspector tool at https://app.taginspector.com. Make sure to use our corporate Pro account. Read more about Tag Inspector at https://hakkasan.atlassian.net/wiki/display/WT/Tag+Inspector",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaTagInspectorKey = issue.key;
+        issueKeys.techQaTagInspectorKey = techQaTagInspectorKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Custom 404 Page",
+        "description": "",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaCustom404Key = issue.key;
+        issueKeys.techQaCustom404Key = techQaCustom404Key;
+      }
+    });
+}
+
+// FUNCTION TO CREATE SUBTASKS UNDER "Setup Tracking Tags" Task
+var createTrackingTagSubtasks = function(project, parent) {
+  console.log('Creating Tracking Tags Sub-tasks...');
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Google Tag Manager - Generate Code",
+        "description": "Generate GTM container ID and post in comments below, tagging the appropriate Bytery representative",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "mgarcia"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var trackingGtmCodeKey = issue.key;
+        issueKeys.trackingGtmCodeKey = trackingGtmCodeKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Google Tag Manager - Install Code",
+        "description": "Add the GTM container code and ID to the source code.",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var trackingGtmInstallKey = issue.key;
+        issueKeys.trackingGtmInstallKey = trackingGtmInstallKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Setup Adroll Tag in GTM",
+        "description": "",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var trackingAdrollKey = issue.key;
+        issueKeys.trackingAdrollKey = trackingAdrollKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Setup Facebook Pixel in GTM",
+        "description": "",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var trackingFacebookKey = issue.key;
+        issueKeys.trackingFacebookKey = trackingFacebookKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {
+          "key": parent
+        },
+        "project": {
+          "key": project
+        },
+        //"customfield_10008": epic,   // Epic within which to create task
+        "summary": "Setup Marketo Munchkin in GTM",
+        "description": "",
+        "issuetype": {
+          "name": "Sub-task"
+        },
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var trackingMarketoKey = issue.key;
+        issueKeys.trackingMarketoKey = trackingMarketoKey;
+      }
+    });
+}
+
+// FUNCTION FOR LINKING ISSUES
 var linkIssues = function(issueKeys) {
   console.log('Linking issues...');
   jira.issueLink.createIssueLink(
     {
       "issueLink": {
-        "type": {
-            "name": "Blocks"
-        },
-        "inwardIssue": {
-            "key": issueKeys.previewImageKey
-        },
-        "outwardIssue": {
-            "key": issueKeys.twitterCardKey
-        },
-        "comment": {
-            "body": "Can't create Twitter Card image tag until preview image is set",
-        }
+        "type": {"name": "Blocks"},
+        "inwardIssue": {"key": issueKeys.previewImageKey},
+        "outwardIssue": {"key": issueKeys.twitterCardKey},
+        "comment": {"body": "Can't create Twitter Card image tag until preview image is set"}
       }
     },
     function(error, result) {
@@ -569,58 +1020,43 @@ var linkIssues = function(issueKeys) {
         console.log(result);
       }
     });
-    jira.issueLink.createIssueLink(
-      {
-        "issueLink": {
-          "type": {
-              "name": "Blocks"
-          },
-          "inwardIssue": {
-              "key": issueKeys.previewImageKey
-          },
-          "outwardIssue": {
-            "key": issueKeys.facebookOgKey
-          },
-          "comment": {
-            "body": "Can't create Facebook OG image tag until preview image is set",
-          }
-        }
-      },
-      function(error, result) {
-        if (error) {
-          console.log(error);
-          return;
-        } else {
-          console.log(result);
-        }
-      });
-      jira.issueLink.createIssueLink(
-        {
-          "issueLink": {
-            "type": {
-                "name": "Relates"
-            },
-            "inwardIssue": {
-              "key": issueKeys.previewImageKey
-            },
-            "outwardIssue": {
-              "key": issueKeys.heroBannerKey
-            },
-            "comment": {
-                "body": "Preview image and Hero banner are usually the same image, but maybe different sizes",
-            }
-          }
-        },
-        function(error, result) {
-          if (error) {
-            console.log(error);
-            return;
-          } else {
-            console.log(result);
-          }
-        });
+  jira.issueLink.createIssueLink(
+    {
+      "issueLink": {
+        "type": {"name": "Blocks"},
+        "inwardIssue": {"key": issueKeys.previewImageKey},
+        "outwardIssue": {"key": issueKeys.facebookOgKey},
+        "comment": {"body": "Can't create Facebook OG image tag until preview image is set"}
+      }
+    },
+    function(error, result) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        console.log(result);
+      }
+    });
+  jira.issueLink.createIssueLink(
+    {
+      "issueLink": {
+        "type": {"name": "Relates"},
+        "inwardIssue": {"key": issueKeys.previewImageKey},
+        "outwardIssue": {"key": issueKeys.heroBannerKey},
+        "comment": {"body": "Preview image and Hero banner are usually the same image, but maybe different sizes"}
+      }
+    },
+    function(error, result) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        console.log(result);
+      }
+    });
 };
 
+// CALL INITIAL TASK BOMB
 bombsAway(project, epic);
 
 
