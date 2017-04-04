@@ -1,0 +1,16 @@
+project: MEC
+epic: MEC-90
+issuetype: Task
+summary: Fix/Implement SSL on
+description: SSL is either broken or not implemented on this website. Please make this site fully SSL compliant
+sites:
+ - 1oaklasvegas.com
+ - barepoollv.com
+ - hakkasangroup.com
+ - hakkasanlv.com
+ - omnianightclub.com
+ - thebanklasvegas.com
+ - tickets.hakkasanlv.com/hakkasanlv/buy/tickets
+ - vistacocktaillounge.com
+ - wetrepublic.com
+ - yauatcha.com
