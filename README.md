@@ -13,11 +13,13 @@ between tasks (from the initial batch).
 Mechjira-loop.js is more like a Gatling gun, iterating over an array of values to create clones
 of a task modeled in a yaml file.
 
-## Configuration
+## Configuration  
 
 Mechajira uses the jira-connector module (https://www.npmjs.com/package/jira-connector)
 to make calls to Jira's REST API, and relies on a jira.json file (in a /config directory) to
-store the 'host', 'username', and 'password' for authentication.
+store the 'host', 'username', and 'password' for authentication. We advise creating a new
+user with full permissions specifically for Mechjira so all of Mechajira's actions can be
+easily monitored.
 
 ## Usage
 
@@ -40,7 +42,6 @@ and then iterates over an array to create clones of the model Issue, inserting t
 items into the Issue summaries.
 
 The config.yml file should look something like this:
-<code>
 project: MEC          // Jira Project key
 epic: MEC-90          // Jira Epic key
 issuetype: Task       // Jira issue type
@@ -50,14 +51,7 @@ sites:
  - site 1
  - site 2
  - site 3
-</code>
 
 Using the example config.yml file above, mechajira-loop.js will iterate over the values
 under 'sites' to create three Tasks with the above properties, each one having a
 Summary of "Fix [site]"
-
-### Prerequisites
-
-First, you need to create a user in your JIRA for Mechajira.
-
-First, you need a ```config/jira.yml``` file that contains your
