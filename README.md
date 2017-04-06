@@ -25,16 +25,16 @@ easily monitored.
 
 MECHAJIRA-BOMB.JS
 Mechajira-bomb.js uses the async module to manage the asynchronous processing of multiple
-createIssue() calls and the subsequent creation of sub-tasks and issue links.
+`createIssue()` calls and the subsequent creation of sub-tasks and issue links.
 
-The bombsAway() function creates an initial batch of tasks using async.parallel control
-flow with a callback including two separate create_____Subtasks() functions and a
-linkIssues() function.
+The `bombsAway()` function creates an initial batch of tasks using `async.parallel` control
+flow with a callback including two separate `create_____Subtasks()` functions and a
+`linkIssues()` function.
 
-The create_____Subtasks() functions take two arguments: (1) a Jira Project key, and
+The `create_____Subtasks()` functions take two arguments: (1) a Jira Project key, and
 (2) an Issue key from the first batch under which to create the Subtasks.
-The linkIssues() function takes the entire issueKeys object created by bombsAway() and
-then references individual Issue keys inside each issueLink.createIssueLink() call.
+The `linkIssues()` function takes the entire `issueKeys` object created by `bombsAway()` and
+then references individual Issue keys inside each `issueLink.createIssueLink()` call.
 
 MECHAJIRA-LOOP.JS
 Mechajira-loop.js uses a yaml config file to set all of the properties of a model Issue
@@ -42,6 +42,7 @@ and then iterates over an array to create clones of the model Issue, inserting t
 items into the Issue summaries.
 
 The config.yml file should look something like this:
+```
 project: MEC          // Jira Project key
 epic: MEC-90          // Jira Epic key
 issuetype: Task       // Jira issue type
@@ -51,7 +52,7 @@ sites:
  - site 1
  - site 2
  - site 3
-
+```
 Using the example config.yml file above, mechajira-loop.js will iterate over the values
 under 'sites' to create three Tasks with the above properties, each one having a
 Summary of "Fix [site]"
