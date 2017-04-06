@@ -42,6 +42,7 @@ and then iterates over an array to create clones of the model Issue, inserting t
 items into the Issue summaries.
 
 The config.yml file should look something like this:
+
 project: MEC          // Jira Project key
 epic: MEC-90          // Jira Epic key
 issuetype: Task       // Jira issue type

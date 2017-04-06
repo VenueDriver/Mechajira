@@ -2,4 +2,4 @@ node_modules
 config/jira.json
 config/jira.yml
 sites.yml
-config.yml
+*.zip
