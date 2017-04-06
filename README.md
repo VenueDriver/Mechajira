@@ -17,7 +17,7 @@ of a task modeled in a yaml file.
 
 Mechajira uses the jira-connector module (https://www.npmjs.com/package/jira-connector)
 to make calls to Jira's REST API, and relies on a jira.json file (in a /config directory) to
-store the 'host', 'username', and 'password' for authentication. We advise creating a new
+store the `host` `username`, and `password` for authentication. We advise creating a new
 user with full permissions specifically for Mechjira so all of Mechajira's actions can be
 easily monitored.
 
