@@ -46,10 +46,16 @@ var bombsAway = function(config) {
   })
 }
 
-try {
-  var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
-  console.log("Preparing to create cloned Jira issues for : " + config.sites.join(", ") + "...\n");
-  bombsAway(config);
-} catch (e) {
-  console.log(e);
+var readConfig = function() {
+  try {
+    var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
+    console.log("Preparing to create cloned Jira issues for : " + config.sites.join(", ") + "...\n");
+    bombsAway(config);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+exports.handler = function(event, context) {
+  readConfig();
 }
