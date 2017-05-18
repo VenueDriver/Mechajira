@@ -12,8 +12,8 @@ var jira = new jiraClient({
   }
 });
 
-var project = 'MEC';
-var epic = 'MEC-90';
+var project = 'OAK';
+var epic = 'OAK-74';
 var issueKeys = {};
 
 // DEFINE INITIAL TASK BOMB
@@ -27,10 +27,10 @@ var bombsAway = function(project, epic) {
              "project": {"key": project},
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "VIP Tables Form",
-             "description": "Adding task to Epic 'Test Bombing Epic'",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "description": "",
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -51,9 +51,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Git Project Setup",
              "description": "Initialize Git repository and host it on GitHub.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -74,9 +74,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Select default title, description",
              "description": "Select the title and description that will be used throughout the site. Should be 150 to 160 characters each.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery","clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery","clubs"]
            }
         },
         function(error, issue) {
@@ -97,9 +97,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Continuous delivery pipeline",
              "description": "Set up a continuous delivery pipeline for both a staging site and a production site.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "dnorrbom"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "dnorrbom"},
+             "labels": ["the-bytery", "clubs"]
           }
         },
         function(error, issue) {
@@ -120,9 +120,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Domain name setup",
              "description": "Set up the domain name AND sub-domain for staging.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "dnorrbom"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "dnorrbom"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -135,6 +135,29 @@ var bombsAway = function(project, epic) {
           }
         })
     },
+    yoastPremiumKey: function(callback) {
+      jira.issue.createIssue(
+        {
+          "fields": {
+             "project": {"key": project},
+             "customfield_10008": epic,   // Epic within which to create task
+             "summary": "Install Yoast Premium plugin",
+             "description": "Install Yoast Premium plugin to handle redirects",
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "dnorrbom"},
+             "labels": ["the-bytery", "clubs"]
+           }
+        },
+        function(error, issue) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            var yoastPremiumKey = issue.key;
+            callback(null, yoastPremiumKey);
+          }
+        })
+    },
     heroBannerKey: function(callback) {
       jira.issue.createIssue(
         {
@@ -143,9 +166,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Hero Banner",
              "description": "",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -166,9 +189,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Preview image for social media",
              "description": "Design an image for use in previews for Facebook, Twitter, Apple Messenger, etc.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
           }
         },
         function(error, issue) {
@@ -188,9 +211,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Facebook Open Graph Tags",
              "description": "Set up Facebook Open Graph tags using the standard page title and description and the social media preview image.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -211,9 +234,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Twitter Card Tags",
              "description": "Set up Twitter cards using the standard page title and description and the social media preview image.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -234,9 +257,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Setup Tracking Tags",
              "description": "Get the Tag Manager container ID from the Google Tag Master and set up the snippet in the site pages. Also add the standard tags listed at https://hakkasan.atlassian.net/wiki/display/WT/Google+Tag+Manager",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "mgarcia"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "mgarcia"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -257,9 +280,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Venue Driver ID",
              "description": "",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "dnorrbom"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "dnorrbom"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -280,9 +303,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Marketo Form",
              "description": "",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -303,9 +326,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Branding on Ticketing Page",
              "description": "",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -326,9 +349,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Create Artist Brand in Database",
              "description": "",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "fgalan"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "fgalan"},
+             "labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -349,9 +372,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Announcement Blog Post",
              "description": "Create blog post to notify ALL stakeholders of coming website.",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "jhand"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "jhand"}
+             //"labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -372,9 +395,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Email Announcement to Stakeholders",
              "description": "Send email to ALL stakeholders with blog post content",
-             "issuetype": {"name": "Task"}
-            //  "assignee": {"name": "jhand"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Task"},
+             "assignee": {"name": "jhand"}
+             //"labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -395,9 +418,9 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Final Marketing Approval",
              "description": "Mark this approved once the key stakeholders in Marketing all agree that it's approved.",
-             "issuetype": {"name": "Approval"}    // MAKE SURE THIS ISSUE TYPE IS ALLOWED IN THE PROJECT SETTINGS
-            //  "assignee": {"name": "jhand"},
-            //  "labels": ["the-bytery", "clubs"]
+             "issuetype": {"name": "Approval"},    // MAKE SURE THIS ISSUE TYPE IS ALLOWED IN THE PROJECT SETTINGS
+             "assignee": {"name": "jhand"}
+             //"labels": ["the-bytery", "clubs"]
            }
         },
         function(error, issue) {
@@ -418,8 +441,8 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Final Technical Approval",
              "description": "This will be approved once the QA checklist passes.",
-             "issuetype": {"name": "Approval"}     // MAKE SURE THIS ISSUE TYPE IS ALLOWED IN THE PROJECT SETTINGS
-            //  "assignee": {"name": "jhand"},
+             "issuetype": {"name": "Approval"},     // MAKE SURE THIS ISSUE TYPE IS ALLOWED IN THE PROJECT SETTINGS
+             "assignee": {"name": "dcollado"}
             //  "labels": ["the-bytery", "clubs"]
            }
         },
@@ -441,8 +464,8 @@ var bombsAway = function(project, epic) {
              "customfield_10008": epic,   // Epic within which to create task
              "summary": "Final Creative Approval",
              "description": "",
-             "issuetype": {"name": "Approval"}      // MAKE SURE THIS ISSUE TYPE IS ALLOWED IN THE PROJECT SETTINGS
-            //  "assignee": {"name": "jhand"},
+             "issuetype": {"name": "Approval"},      // MAKE SURE THIS ISSUE TYPE IS ALLOWED IN THE PROJECT SETTINGS
+             "assignee": {"name": "jhand"}
             //  "labels": ["the-bytery", "clubs"]
            }
         },
@@ -476,7 +499,7 @@ var createTechQaSubtasks = function(project, parent) {
         "project": {"key": project},
         "summary": "Passes Google Mobile-Friendly Test",
         "description": "Submit page/site URL to Google's Mobile-Friendly Test tool at https://www.google.com/webmasters/tools/mobile-friendly/Paste a link to the results page in the comments below when complete.",
-        "issuetype": {"name": "Sub-task"},
+        "issuetype": {"name": "Sub-task"}
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
       }
@@ -497,7 +520,7 @@ var createTechQaSubtasks = function(project, parent) {
         "project": {"key": project},
         "summary": "Validate HTML",
         "description": "Submit the page/site URL to the HTML Validator tool found at https://validator.w3.org/Paste a link to the results page in the comments below when complete.",
-        "issuetype": {"name": "Sub-task"},
+        "issuetype": {"name": "Sub-task"}
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
       }
@@ -518,7 +541,7 @@ var createTechQaSubtasks = function(project, parent) {
         "project": {"key": project},
         "summary": "DRY",
         "description": "Don't Repeat Yourself (with code)",
-        "issuetype": {"name": "Sub-task"},
+        "issuetype": {"name": "Sub-task"}
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
       }
@@ -537,7 +560,7 @@ var createTechQaSubtasks = function(project, parent) {
       "fields": {
         "parent": {"key": parent},
         "project": {"key": project},
-        "summary": "Check Cross-browser Compatibility with Browserstack",
+        "summary": "Check Cross-browser Compatibility",
         "description": "Browserstack.com (must support iOS 5.1+, iPhone, iPhone 6+, iPad)",
         "issuetype": {"name": "Sub-task"},
         //  "assignee": {"name": "jhand"},
@@ -558,8 +581,8 @@ var createTechQaSubtasks = function(project, parent) {
       "fields": {
         "parent": {"key": parent},
         "project": {"key": project},
-        "summary": "robots.txt/site map",
-        "description": "",
+        "summary": "Robots meta tag",
+        "description": "Make sure robots meta tag is set to 'index, follow'",
         "issuetype": {"name": "Sub-task"},
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
@@ -579,8 +602,29 @@ var createTechQaSubtasks = function(project, parent) {
       "fields": {
         "parent": {"key": parent},
         "project": {"key": project},
-        "summary": "Twitter Card",
-        "description": "Submit page/site URL to Twitter's card validator located at https://cards-dev.twitter.com/validator. You will need to 'Request Approval' to get on the 'whitelist' before the validator will work. Make sure the proper graphic appears in the twitter card. Paste a link to the results page in the comments below when complete and upload a screenshot of the card in the Attachments section below.",
+        "summary": "Form Legal Terms",
+        "description": "Make sure forms collecting personally identifying information require Privacy Policy checkbox. Also make sure ticket purchase forms require Ticket Purchase Terms checkbox.",
+        "issuetype": {"name": "Sub-task"},
+        //  "assignee": {"name": "jhand"},
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var techQaLegalTermsKey = issue.key;
+        issueKeys.techQaLegalTermsKey = techQaLegalTermsKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {"key": parent},
+        "project": {"key": project},
+        "summary": "Validate Twitter card",
+        "description": "Submit URL to Twitter's card validator located at https://cards-dev.twitter.com/validator.",
         "issuetype": {"name": "Sub-task"},
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
@@ -600,8 +644,8 @@ var createTechQaSubtasks = function(project, parent) {
       "fields": {
         "parent": {"key": parent},
         "project": {"key": project},
-        "summary": "Facebook Open Graph meta tags",
-        "description": "Check that Facebook OG meta tags provide the proper information using https://developers.facebook.com/tools/debug/. Paste a link to the results page in the comments below when complete.",
+        "summary": "Validate Facebook OG tags",
+        "description": "Submit URL to Facebook OG tag validator at https://developers.facebook.com/tools/debug/",
         "issuetype": {"name": "Sub-task"},
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
@@ -621,8 +665,8 @@ var createTechQaSubtasks = function(project, parent) {
       "fields": {
         "parent": {"key": parent},
         "project": {"key": project},
-        "summary": "Title and Description tags",
-        "description": "Should be 150 to 160 characters each.",
+        "summary": "Check Title, Description meta tags",
+        "description": "Should be less than 160 character",
         "issuetype": {"name": "Sub-task"},
         //  "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
@@ -713,7 +757,7 @@ var createTrackingTagSubtasks = function(project, parent) {
         "summary": "Google Tag Manager - Generate Code",
         "description": "Generate GTM container ID and post in comments below, tagging the appropriate Bytery representative",
         "issuetype": {"name": "Sub-task"},
-        //  "assignee": {"name": "mgarcia"},
+        "assignee": {"name": "mgarcia"}
         //  "labels": ["the-bytery", "clubs"]
       }
     },
@@ -734,7 +778,7 @@ var createTrackingTagSubtasks = function(project, parent) {
         "summary": "Google Tag Manager - Install Code",
         "description": "Add the GTM container code and ID to the source code.",
         "issuetype": {"name": "Sub-task"},
-        //  "assignee": {"name": "jhand"},
+        "assignee": {"name": "mgarcia"}
         //  "labels": ["the-bytery", "clubs"]
       }
     },
@@ -755,7 +799,7 @@ var createTrackingTagSubtasks = function(project, parent) {
         "summary": "Setup Adroll Tag in GTM",
         "description": "",
         "issuetype": {"name": "Sub-task"},
-        //  "assignee": {"name": "jhand"},
+        "assignee": {"name": "mgarcia"}
         //  "labels": ["the-bytery", "clubs"]
       }
     },
@@ -775,8 +819,8 @@ var createTrackingTagSubtasks = function(project, parent) {
         "project": {"key": project},
         "summary": "Setup Facebook Pixel in GTM",
         "description": "",
-        "issuetype": {"name": "Sub-task"},
-        //  "assignee": {"name": "jhand"},
+        "assignee": {"name": "mgarcia"}
+        "assignee": {"name": "jhand"},
         //  "labels": ["the-bytery", "clubs"]
       }
     },
@@ -794,10 +838,31 @@ var createTrackingTagSubtasks = function(project, parent) {
       "fields": {
         "parent": {"key": parent},
         "project": {"key": project},
+        "summary": "Setup Movable Ink tags in GTM",
+        "description": "",
+        "issuetype": {"name": "Sub-task"},
+        "assignee": {"name": "mgarcia"}
+        //  "labels": ["the-bytery", "clubs"]
+      }
+    },
+    function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        var trackingFacebookKey = issue.key;
+        issueKeys.trackingMovableInkKey = trackingFacebookKey;
+      }
+    });
+  jira.issue.createIssue(
+    {
+      "fields": {
+        "parent": {"key": parent},
+        "project": {"key": project},
         "summary": "Setup Marketo Munchkin in GTM",
         "description": "",
         "issuetype": {"name": "Sub-task"},
-        //  "assignee": {"name": "jhand"},
+        "assignee": {"name": "mgarcia"}
         //  "labels": ["the-bytery", "clubs"]
       }
     },

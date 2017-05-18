@@ -29,7 +29,7 @@ var bombsAway = function(config) {
            "project": {"key": config.project},
            "customfield_10008": config.epic,   // Epic within which to create task
            "summary": `${config.summary} ${site}`,
-           "description": config.description,
+           "description": `${config.description} ${site}`,
            "issuetype": {"name": config.issuetype}
           //  "assignee": {"name": "fgalan"},
           //  "labels": ["the-bytery", "clubs"]

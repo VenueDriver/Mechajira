@@ -1,6 +1,6 @@
 {
   "name": "mechajira",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "JIRA bot built with Node.js.",
   "main": "mechajira.js",
   "repository": {
