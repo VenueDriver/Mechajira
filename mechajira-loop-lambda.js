@@ -6,10 +6,10 @@ var jiraClient = require('jira-connector');
 var yaml = require('js-yaml');
 
 var jira = new jiraClient({
-  host: config.host,
+  host: process.env.HOST,
   basic_auth: {
-    username: config.username,
-    password: config.password
+    username: process.env.USERNAME,
+    password: process.env.PASSWORD
   }
 });
 // var jira = new jiraClient({      // Use this block with environment variables
