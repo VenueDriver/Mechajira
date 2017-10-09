@@ -1,4 +1,4 @@
-var config = require('./config/jira.json');
+var config = require('../config/jira.json');
 
 var util = require('util');
 var fs = require('fs');
@@ -20,8 +20,17 @@ var jira = new jiraClient({
 //   }
 // });
 
+var getIssue = function(config) {
+  console.log(`Fetching data for ${config.issue}`);
+}
+
+var parseIssue = function(config) {
+  
+}
+
+/*
 var bombsAway = function(config) {
-  config.sites.forEach(function(site) {
+  config.issue.forEach(function(site) {
     console.log(`Creating issue for ${site}...`);
     jira.issue.createIssue(
       {
@@ -46,10 +55,10 @@ var bombsAway = function(config) {
   })
 }
 
+*/
 try {
   var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
-  console.log("Preparing to create cloned Jira issues for : " + config.sites.join(", ") + "...\n");
-  bombsAway(config);
+  getIssue(config);
 } catch (e) {
   console.log(e);
 }

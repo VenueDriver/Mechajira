@@ -1,0 +1,35 @@
+project: MEC
+epic: MEC-90
+issuetype: Task
+summary: Setup DMARC
+description: Setup DMARC on
+assignee: dcollado
+sites:
+ - barepoollv.com
+ - casacalavera.com
+ - citizenslasvegas.com
+ - fixlasvegas.com
+ - hakkasan.com
+ - hakkasangroup.com
+ - hakkasanlv.com
+ - hakkasannightclub.com
+ - herringboneeats.com
+ - hkk.com
+ - in.vegas
+ - ivoryonsunset.com
+ - jewelnightclub.com
+ - kumilasvegas.com
+ - liquidpoollv.com
+ - omniabali.com
+ - omnialv.com
+ - omnianightclub.com
+ - omniasd.com
+ - redsquarelasvegas.com
+ - sakenohana.com
+ - searsucker.com
+ - stacklasvegas.com
+ - wetrepublic.com
+ - yauatcha.com
+ - yellowtaillasvegas.com
+ - OMNIAloscabos.com
+ - Shorebarloscabos.com
