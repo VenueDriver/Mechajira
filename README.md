@@ -56,3 +56,9 @@ sites:
 Using the example config.yml file above, mechajira-loop.js will iterate over the values
 under 'sites' to create three Tasks with the above properties, each one having a
 Summary of "Fix [site]"
+
+## Testing
+
+From the project folder, run the tests with:
+
+    ./node_modules/mocha/bin/mocha

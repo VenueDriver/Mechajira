@@ -13,7 +13,8 @@
   },
   "homepage": "https://github.com/VenueDriver/Mechajira",
   "devDependencies": {
-    "jira-connector": "1.11.0"
+    "jira-connector": "1.11.0",
+    "mocha": "^4.0.1"
   },
   "dependencies": {
     "async": "^2.2.0",
