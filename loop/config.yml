@@ -1,35 +1,35 @@
-project: MEC
-epic: MEC-90
+project: WDEV
+epic: WDEV-4156
 issuetype: Task
-summary: Setup DMARC
-description: Setup DMARC on
-assignee: dcollado
+summary: Basic Social QA
+description: Please QA (1) meta title/description, (2) facebook og tags, and (3) twitter card for
+assignee:
 sites:
- - barepoollv.com
- - casacalavera.com
- - citizenslasvegas.com
- - fixlasvegas.com
- - hakkasan.com
- - hakkasangroup.com
- - hakkasanlv.com
- - hakkasannightclub.com
- - herringboneeats.com
- - hkk.com
- - in.vegas
- - ivoryonsunset.com
- - jewelnightclub.com
- - kumilasvegas.com
- - liquidpoollv.com
- - omniabali.com
- - omnialv.com
- - omnianightclub.com
- - omniasd.com
- - redsquarelasvegas.com
- - sakenohana.com
- - searsucker.com
- - stacklasvegas.com
- - wetrepublic.com
- - yauatcha.com
- - yellowtaillasvegas.com
- - OMNIAloscabos.com
- - Shorebarloscabos.com
+ - 1OakLasVegas.com
+ - AlibiLoungeLV.com
+ - BarePoolLV.com
+ - CitizensLasVegas.com
+ - FixLasVegas.com
+ - HKKHospitality.com
+ - HKKLondon.com
+ - Hakkasan.com
+ - HakkasanGroup.com
+ - HakkasanLV.com
+ - HerringboneEats.com
+ - IvoryOnSunset.com
+ - JewelNightclub.com
+ - Kumilasvegas.com
+ - LilyLasVegas.com
+ - Liquidpoollv.com
+ - Omniabali.com
+ - Omnialv.com
+ - Omnianightclub.com
+ - Omniasd.com
+ - Omnialoscabos.com
+ - Redsquarelasvegas.com
+ - Sakenohana.com
+ - Searsucker.com
+ - Stacklasvegas.com
+ - Wetrepublic.com
+ - Yauatcha.com
+ - Yellowtaillasvegas.com

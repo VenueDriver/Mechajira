@@ -75,6 +75,14 @@ var createAllIssues = function(config) {
   })
 }
 
+try {
+  var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
+  console.log("Preparing to create cloned Jira issues for : " + config.sites.join(", ") + "...\n");
+  createAllIssues(config);
+} catch (e) {
+  console.log(e);
+}
+
 /*
 var bombsAway = function(config) {
   config.sites.forEach(function(site) {
@@ -102,11 +110,3 @@ var bombsAway = function(config) {
   })
 }
 */
-
-try {
-  var config = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
-  console.log("Preparing to create cloned Jira issues for : " + config.sites.join(", ") + "...\n");
-  createAllIssues(config);
-} catch (e) {
-  console.log(e);
-}
