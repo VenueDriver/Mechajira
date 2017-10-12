@@ -29,10 +29,11 @@ var updateTasks = function(issuesAndDates) {
     var issue = Object.keys(issuesAndDates)[i];
     var duedate = dates[i];
     console.log(`Updating ${issue} Dudedate to ${duedate}...`);
-    jira.issue.editIssue({
+    jira.issue.editIssue(
+      {
       "key": issue,
       "fields": {
-        "duedate": {"key": duedate}
+        "duedate": duedate
       }
     }, function(error, issue) {
       if (error) {
