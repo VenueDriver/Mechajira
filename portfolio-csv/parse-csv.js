@@ -17,15 +17,16 @@ var extractColumns = function(data) {
   data.forEach(function(issue) {
     issuesAndDates[issue['Issue key']] = issue['Scheduled end'];
   });
-  console.log(Object.keys(issuesAndDates)[10]);
-  console.log(Object.values(issuesAndDates)[10]);
-  //updateTasks(issuesAndDates);
+  updateTasks(issuesAndDates);
 }
 
 var updateTasks = function(issuesAndDates) {
+  var dates = Object.keys(issuesAndDates).map(function(key) {
+    return issuesAndDates[key];
+  });
   var numberIssues = Object.keys(issuesAndDates).length;
   for (var i = 0; i < numberIssues; i++) {
-    console.log(`Updating ${Object.keys(issuesAndDates)[i]} Dudedate to ${Object.values(issuesAndDates)[i]}...`);
+    console.log(`Updating ${Object.keys(issuesAndDates)[i]} Dudedate to ${dates[i]}...`);
     /*
     jira.issue.editIssue(
       {
