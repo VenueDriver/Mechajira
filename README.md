@@ -7,11 +7,33 @@ Higher-level than the basic API connector code that it's built on.
 
 For example, the basic API connector can create, update or delete a JIRA issue.
 Mechajira can read a YAML file and create a dozen issues all at once using the
-YAML as a template.  Great for enabling a standardized workflow, where you need to create the epics with tasks in the same configuration repeatedly.
+YAML as a template.  Great for enabling a standardized workflow, where you need
+to create the epics with tasks in the same configuration repeatedly.
+
+# Installation
+
+Clone this project, and install the ```mechajira``` command using NPM, with:
+
+    npm install -g
+
+After that, you should have the command in your path:
+
+    mechajira --help
+
+(If that doesn't work then try ```npm link```.)
 
 # Commands
 
-Each high-level procedure is encapsulated in a sub-commmand:
+Each high-level procedure is encapsulated in a sub-commmand.  You can see the
+list of available commands with:
+
+    mechajira --help
+
+You can get help on a specific command:
+
+    mechajira --help loop
+
+The available commands:
 
 ## loop - Create a list of new JIRA issues with titles from a YAML file
 
