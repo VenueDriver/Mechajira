@@ -26,29 +26,26 @@ var updateTasks = function(issuesAndDates) {
   });
   var numberIssues = Object.keys(issuesAndDates).length;
   for (var i = 0; i < numberIssues; i++) {
-    console.log(`Updating ${Object.keys(issuesAndDates)[i]} Dudedate to ${dates[i]}...`);
-    /*
-    jira.issue.editIssue(
-      {
-        "update": {
-          "parent": {"key": issueKey},
-          "duedate": {"key": project},
-        }
-      },
-      function(error, issue) {
-        if (error) {
-          console.log(error);
-          return;
-        } else {
-          var techQaMobileFriendlyKey = issue.key;
-          issueKeys.techQaMobileFriendlyKey = techQaMobileFriendlyKey;
-        }
-      });
-      */
+    var issue = Object.keys(issuesAndDates)[i];
+    var duedate = dates[i];
+    console.log(`Updating ${issue} Dudedate to ${duedate}...`);
+    jira.issue.editIssue({
+      "key": issue,
+      "fields": {
+        "duedate": {"key": duedate}
+      }
+    }, function(error, issue) {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        console.log(`Update for ${issue} complete!`);
+      }
+    });
   };
 }
 
-fs.readFile('./portfolio.csv', function (err, fileData) {
+fs.readFile('./portfolio_test.csv', function (err, fileData) {
   parse(fileData, {columns: true, trim: true}, function(err, data) {
     extractColumns(data);
   });
