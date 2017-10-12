@@ -2,7 +2,6 @@
   "name": "mechajira",
   "version": "0.3.0",
   "description": "JIRA bot built with Node.js.",
-  "main": "mechajira.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VenueDriver/Mechajira.git"
@@ -17,10 +16,15 @@
   },
   "dependencies": {
     "async": "^2.2.0",
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
     "js-yaml": "^3.8.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "ISC"
+  "bin": {
+    "mechajira": "./mechajira.js"
+  },
+  "license": "MIT"
 }
