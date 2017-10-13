@@ -4,6 +4,5 @@ var chalk = require('chalk');
 
 program
   .usage('[options] <command>')
-  .command('loop [options] [file]', 'Create a list of JIRA issues from a YAML command file.')
   .command('create-list [options] [file]', 'Create a list of JIRA issues from a YAML command file.').alias('cl')
   .parse(process.argv);
