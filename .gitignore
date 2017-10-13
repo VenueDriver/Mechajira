@@ -1,6 +1,2 @@
 node_modules
-config/jira.json
-config/jira.yml
-sites.yml
-*.zip
-*.csv
+config.yml
