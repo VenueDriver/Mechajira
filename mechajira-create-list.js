@@ -3,9 +3,9 @@ var program = require('commander');
 var chalk = require('chalk');
 
 // Returns a hash of configuration values.
-const config_data = require('./lib/config').config_data;
-// Performs the loop operation.
-const loop = require('./lib/loop').loop;
+const configData = require('./lib/config').configData;
+// Performs the create-list operation.
+const createList = require('./lib/create-list').createList;
 
 program
   .arguments('<file>')
@@ -17,7 +17,7 @@ program
   .option('-v, --verbose', "Log lots of extra details.")
   .action(function (file) {
     try {
-      loop(config_data(program), file);
+      createList(configData(program), file);
     } catch (e) {
       console.log(chalk.bold.red(e));
     }
