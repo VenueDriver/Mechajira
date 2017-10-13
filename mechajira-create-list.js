@@ -8,6 +8,7 @@ const configData = require('./lib/config').configData;
 const createList = require('./lib/create-list').createList;
 
 program
+  .description('Create a list of JIRA issues from a YAML command file.')
   .arguments('<file>')
   .usage('[options] loop <file>')
   .option('-h, --host <host>', "The host name of the JIRA instance.")
