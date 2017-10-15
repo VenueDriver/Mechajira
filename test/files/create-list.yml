@@ -1,0 +1,10 @@
+project: MECTEST
+epic: MECTEST-1
+issuetype: Task
+summary: Some funny letters
+description: It's all Greek to me.
+summaries:
+ - alpha
+ - beta
+ - gamma
+ - delta
