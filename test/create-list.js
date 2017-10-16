@@ -12,7 +12,7 @@ describe('create-list', function() {
     function() {
       var getClientStub = sinon.stub(Jira.prototype, "getClient");
       var createIssueStub = sinon.stub(Jira.prototype, "createIssue");
-      createList.createList({}, 'test/files/create-list.yml');
+      createList.createList({silent: true}, 'test/files/create-list.yml');
       sinon.assert.callCount(createIssueStub, 4)
       sinon.assert.calledWith(createIssueStub, sinon.match.any,
         {
