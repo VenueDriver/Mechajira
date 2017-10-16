@@ -1,8 +1,8 @@
 project: MECTEST
 epic: MECTEST-1
 issuetype: Task
-summary: Some funny letters
-description: It's all Greek to me.
+summary: Do something about
+description: This is a task about
 summaries:
  - alpha
  - beta
