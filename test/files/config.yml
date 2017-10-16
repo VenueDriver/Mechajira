@@ -1,0 +1,4 @@
+host: yourcompany.atlassian.net
+port: 443
+username: ryan@yourcompany.com
+password: OpenSesame
