@@ -1,7 +1,7 @@
 var sinon = require('sinon');
 
 const configData = require('../lib/config').configData;
-const jira = require('../lib/jira');
+const Jira = require('../lib/jira');
 const createList = require('../lib/create-list');
 
 var assert = require('assert');
@@ -10,8 +10,8 @@ describe('create-list', function() {
 
     it('should make repeated calls to jira.createIssue',
     function() {
-      var jiraClient = sinon.stub(jira, "jiraClientFromConfig")
-      var createIssueStub = sinon.stub(jira, "createIssue");
+      var getClientStub = sinon.stub(Jira.prototype, "getClient");
+      var createIssueStub = sinon.stub(Jira.prototype, "createIssue");
       createList.createList({}, 'test/files/create-list.yml');
       sinon.assert.callCount(createIssueStub, 4)
       sinon.assert.calledWith(createIssueStub, sinon.match.any,
