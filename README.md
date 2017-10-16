@@ -85,4 +85,8 @@ parameter each time you run a command.
 
 From the project folder, run the tests with:
 
-    ./node_modules/mocha/bin/mocha
+    npm test
+
+To calculate test coverage and update Coveralls:
+
+    npm run coverage
