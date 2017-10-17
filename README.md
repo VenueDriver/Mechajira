@@ -80,3 +80,13 @@ parameter each time you run a command.
     host: ourcompany.atlassian.net
     username: user1
     password: pass1
+
+## Testing
+
+From the project folder, run the tests with:
+
+    npm test
+
+To calculate test coverage and update Coveralls:
+
+    npm run coverage

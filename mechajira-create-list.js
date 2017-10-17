@@ -16,6 +16,7 @@ program
   .option('-u, --username <username>', "The JIRA user's username.")
   .option('-p, --password <password>', "The JIRA user's password.")
   .option('-v, --verbose', "Log lots of extra details.")
+  .option('-s, --silent', "Don't log anything unless there is an error.")
   .action(function (file) {
     try {
       createList(configData(program), file);

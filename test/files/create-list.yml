@@ -1,0 +1,10 @@
+project: MECTEST
+epic: MECTEST-1
+issuetype: Task
+summary: Do something about
+description: This is a task about
+summaries:
+ - alpha
+ - beta
+ - gamma
+ - delta
