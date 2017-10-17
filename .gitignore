@@ -2,3 +2,4 @@ node_modules
 /config.yml
 .coveralls.yml
 coverage
+.DS_Store
