@@ -9,10 +9,11 @@ describe('create-list', function() {
   describe('#createList()', function() {
 
     it('should make repeated calls to jira.createIssue',
-    function() {
+    async function() {
       var getClientStub = sinon.stub(Jira.prototype, "getClient");
-      var createIssueStub = sinon.stub(Jira.prototype, "createIssue");
-      createList.createList({silent: true}, 'test/files/create-list.yml');
+      var createIssueStub = sinon.stub(Jira.prototype, "createIssue").
+        resolves({issueKey: 'ABC-123'});
+      await createList.createList({silent: true}, 'test/files/create-list.yml');
       sinon.assert.callCount(createIssueStub, 4)
       sinon.assert.calledWith(createIssueStub,
         {
