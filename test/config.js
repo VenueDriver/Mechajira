@@ -1,6 +1,6 @@
-const configData = require('../lib/config').configData;
+const configData = require('../lib/config').configData
 
-var assert = require('assert');
+var assert = require('assert')
 describe('config', function() {
   describe('#configData()', function() {
 
@@ -22,11 +22,11 @@ describe('config', function() {
           'username': 'SNOWMAN',
           'password': 'BcraFrfnzr'
         },
-        'test/files/config.yml');
-      assert.equal('anothercompany.atlassian.net', config.host);
-      assert.equal('80', config.port);
-      assert.equal('SNOWMAN', config.username);
-      assert.equal('BcraFrfnzr', config.password);
+        'test/files/config.yml')
+      assert.equal('anothercompany.atlassian.net', config.host)
+      assert.equal('80', config.port)
+      assert.equal('SNOWMAN', config.username)
+      assert.equal('BcraFrfnzr', config.password)
     });
 
   });

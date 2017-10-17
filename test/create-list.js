@@ -1,10 +1,10 @@
-var sinon = require('sinon');
+var sinon = require('sinon')
 
-const configData = require('../lib/config').configData;
-const Jira = require('../lib/jira');
-const createList = require('../lib/create-list');
+const configData = require('../lib/config').configData
+const Jira = require('../lib/jira')
+const createList = require('../lib/create-list')
 
-var assert = require('assert');
+var assert = require('assert')
 describe('create-list', function() {
   describe('#createList()', function() {
 
@@ -12,8 +12,8 @@ describe('create-list', function() {
     async function() {
       var getClientStub = sinon.stub(Jira.prototype, "getClient");
       var createIssueStub = sinon.stub(Jira.prototype, "createIssue").
-        resolves({issueKey: 'ABC-123'});
-      await createList.createList({silent: true}, 'test/files/create-list.yml');
+        resolves({issueKey: 'ABC-123'})
+      await createList.createList({silent: true}, 'test/files/create-list.yml')
       sinon.assert.callCount(createIssueStub, 4)
       sinon.assert.calledWith(createIssueStub,
         {
@@ -47,7 +47,7 @@ describe('create-list', function() {
           description: "This is a task about gamma",
           epic: "MECTEST-1"
         })
-    });
+    })
 
-  });
-});
+  })
+})
