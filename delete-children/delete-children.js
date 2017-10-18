@@ -31,7 +31,7 @@ var getIssue = function(issuekey) {
 
 var findChildren = function(issuekey) {
   console.log(`Searching for children of ${issuekey}...`);
-  jira.issue.search({
+  jira.search({
     'jql': 'cf[11100]=${issuekey}'
   },
   function(error, childIssues) {
