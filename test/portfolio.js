@@ -7,7 +7,7 @@ const portfolio = require('../lib/portfolio')
 describe('portfolio', function() {
   describe('#portfolio()', function() {
 
-    it('should make repeated calls to jira.editIssue',
+    it('should make repeated calls to jira.editIssue.',
     async function() {
       var getClientStub = sinon.stub(Jira.prototype, "getClient");
       var editIssueStub = sinon.stub(Jira.prototype, "editIssue").

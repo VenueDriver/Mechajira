@@ -7,7 +7,7 @@ const Jira = require('../lib/jira')
 describe('jira', function() {
   describe('#editIssue()', function() {
 
-    it('should make an HTTP call to the createIssue action in the API', async function() {
+    it('should make an HTTP call to the createIssue action in the API.', async function() {
       nock('https://yourcompany.atlassian.net', {'encodedQueryParams':true})
         .post('/rest/api/2/issue', {
           'fields':
@@ -29,12 +29,10 @@ describe('jira', function() {
         'epic': 'MECTEST-1'
       }
       var jiraIssue = await jira.createIssue(issueData)
-      console.log("jiraIssue:")
-      console.dir(jiraIssue)
       assert.equal('MECTEST-355', jiraIssue.key)
     })
 
-    it('should make an HTTP call to the editIssue action in the API', async function() {
+    it('should make an HTTP call to the editIssue action in the API.', async function() {
       nock('https://yourcompany.atlassian.net', {'encodedQueryParams':true})
         .put('/rest/api/2/issue/MECTEST-1', {'fields':{'duedate':'2017-10-26'}})
         .reply(204, '', [])

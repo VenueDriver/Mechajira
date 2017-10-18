@@ -7,7 +7,7 @@ const createList = require('../lib/create-list')
 describe('create-list', function() {
   describe('#createList()', function() {
 
-    it('should make repeated calls to jira.createIssue',
+    it('should make repeated calls to jira.createIssue.',
     async function() {
       var getClientStub = sinon.stub(Jira.prototype, "getClient");
       var createIssueStub = sinon.stub(Jira.prototype, "createIssue").
