@@ -5,6 +5,7 @@ const Jira = require('../lib/jira')
 const CreateList = require('../lib/create-list')
 
 describe('CreateList', function() {
+
   describe('#process()', function() {
 
     it('should make repeated calls to jira.createIssue.',
@@ -51,4 +52,35 @@ describe('CreateList', function() {
       createIssueStub.restore()
     })
   })
+
+  describe('#mergedIssueFromCommonValues()', function() {
+
+    it('should return a combined issue hash.', function() {
+      var createList = new CreateList({silent: true})
+      const mergedIssue = createList.mergedIssueFromCommonValues(
+        // Common fields.
+        {
+          'project': 'PROJECT',
+          'issuetype': 'Task',
+          'description': 'DESCRIPTION',
+          'epic': 'MEC-1'
+        },
+        // Fields for this specific issue.
+        {
+          'summary': 'SUMMARY',
+        }
+      )
+      assert.deepEqual(
+        {
+          'summary': 'SUMMARY',
+          'project': 'PROJECT',
+          'issuetype': 'Task',
+          'description': 'DESCRIPTION',
+          'epic': 'MEC-1'
+        },
+        mergedIssue
+      )
+    })
+  })
+
 })
