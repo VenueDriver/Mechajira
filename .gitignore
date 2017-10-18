@@ -3,3 +3,4 @@ node_modules
 .coveralls.yml
 coverage
 .DS_Store
+.nyc_output
