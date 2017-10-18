@@ -35,49 +35,81 @@ You can get help on a specific command:
 
 The available commands:
 
-## loop - Create a list of new JIRA issues with titles from a YAML file
+## create-loop
+_Create a list of new JIRA issues with titles from a YAML file_
 
-The ```loop``` command reads a YAML file.  The file includes context, and a list
-of titles.  The command iterates over the list and creates JIRA issues with
-those titles.
+The ```create-loop``` command reads a YAML file.  The file includes context, and
+a list of titles.  The command iterates over the list and creates JIRA issues
+with those titles.  It will set the Epic for each new issue to the Epic
+specified in the YAML file.
+
+Use this when you have an existing Epic in JIRA, and you want to create a list
+of Tasks or Stories or Bugs or something under that Epic.  Maybe you're doing QA
+on something, so you open a "QA on Something" epic, and you start taking notes.
+You can list your issues in the YAML file during QA and then run this command at
+the end to create a list of Bug issues all at once.
 
 Example:
 
-    mechajira loop list.yml
+    mechajira create-loop list.yml
 
-The config.yml file should look something like this:
+The list.yml file should look something like this:
 
     project: MEC          // Jira Project key
-    epic: MEC-90          // Jira Epic key
-    issuetype: Task       // Jira issue type
+    epic: MEC-1           // Jira Epic key
+    issuetype: Bug        // Jira issue type
     summary: Fix
     description: More text here...
-    sites:
-     - site 1
-     - site 2
-     - site 3
+    summaries:
+     - missing meta description tag
+     - incorrect Facebook Open Graph image
+     - wrong Google Tag Manager container ID
 
 Using the example config.yml file above, mechajira-loop.js will iterate over the
-values under 'sites' to create three Tasks with the above properties, each one
-having a Summary of "Fix [site]"
+values under 'sites' to create three Bug issues under the Epic "MEC-1" with the
+above properties, with these summaries:
 
-## bomb - Create many issues from a YAML file template
+1. Fix missing meta description tag
+* Fix incorrect Facebook Open Graph image
+* Fix wrong Google Tag Manager container ID
 
-The ```bomb``` command creates JIRA issues from a YAML file template.  It can
-create sub-tasks under any number of initial tasks and then create issue links
-between tasks.
+## portfolio
+_Update JIRA issues from a JIRA Portfolio export CSV file._
+
+The ```portfolio``` command reads a CSV file, in the format that JIRA Portfolio exports from the "Scope" report.  It looks for the "Scheduled End" date for each issue, and updates the "Due Date" of that JIRA issue with the scheduled end date.
+
+Use this when you want to use JIRA Portfolio to calculate the due dates on
+issues based on the calculated schedule.  This can be useful for communicating
+the schedule to task workers through normal JIRA channels.  The authors of this
+command use kanban boards in JIRA with swim lanes based on due dates.  This
+Mechajira command connects the dots between JIR portfolio and those kanban
+boards.
+
+Example:
+
+    mechajira portfolio Engineering_Departme_Scope_20171026.csv
+
+The output should look a little like this:
+
+    $ mechajira portfolio portfolio/Engineering_Departme_Scope_20171017.csv
+    Updating issues from JIRA Portfolio export portfolio/Engineering_Departme_Scope_20171017.csv
+    Skipping issue MEC-1, with no scheduled end date.
+    Setting due date on MEC-2 to 13/Nov/17...
+    MEC-2 due date updated to 2017-11-13.
+    Setting due date on MEC-3 to 13/Nov/17...
+    MEC-3 due date updated to 2017-11-13.
 
 # Configuration  
 
 You can pass in the ```host```, ```username``` and ```password``` for your JIRA instance as options on the command line.  For example:
 
-    mechajira loop -u user1 -p pass1 -h ourcompany.atlassian.net list.yml
+    mechajira loop -u user1 -p pass1 -h yourcompany.atlassian.net list.yml
 
 Mechajira will also look for a ```config.yml``` file in the current folder.  You
 can store your access information so that you don't have to pass it as a
 parameter each time you run a command.
 
-    host: ourcompany.atlassian.net
+    host: yourcompany.atlassian.net
     username: user1
     password: pass1
 
