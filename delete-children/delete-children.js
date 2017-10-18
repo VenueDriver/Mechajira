@@ -11,25 +11,9 @@ var jira = new jiraClient({
   }
 });
 
-var issuekey = "WDEV-4156";
+var issuekey = "MECTEST-1";
 
-var getIssue = function(issuekey) {
-  console.log(`Retrieving ${issuekey}...`);
-  jira.issue.getIssue({
-    "issueKey": issuekey
-    },
-    function(error, issue) {
-      if (error) {
-        console.log(error);
-        return;
-      } else {
-        console.log(`Got ${issue}!`);
-        findChildren(issue);
-      }
-  });
-}
-
-var findChildren = function(issuekey) {
+var deleteChildren = function(issuekey) {
   console.log(`Searching for children of ${issuekey}...`);
   jira.search.search({
     'jql': "cf[10008]=" + `${issuekey}`
@@ -39,12 +23,25 @@ var findChildren = function(issuekey) {
       console.log(error);
       return;
     } else {
-      console.log(childIssues);
+      childIssues.issues.forEach(function(child) {
+        console.log(child.key);
+        jira.issue.deleteIssue({
+          "issueKey": child.key
+        },
+        function(error, result) {
+          if (error) {
+            console.log(error);
+            return;
+          } else {
+            console.log(`Deleted ${child.key}`);
+          }
+        })
+      })
     }
-  });
+  })
 }
 
-findChildren(issuekey);
+deleteChildren(issuekey);
 
 
 /*
