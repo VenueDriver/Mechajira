@@ -1,6 +1,7 @@
+var assert = require('assert')
+
 const configData = require('../lib/config').configData
 
-var assert = require('assert')
 describe('config', function() {
   describe('#configData()', function() {
 

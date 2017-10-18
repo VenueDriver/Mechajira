@@ -1,10 +1,9 @@
 var sinon = require('sinon')
+var assert = require('assert')
 
-const configData = require('../lib/config').configData
 const Jira = require('../lib/jira')
 const portfolio = require('../lib/portfolio')
 
-var assert = require('assert')
 describe('portfolio', function() {
   describe('#portfolio()', function() {
 

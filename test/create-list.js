@@ -1,10 +1,9 @@
 var sinon = require('sinon')
+var assert = require('assert')
 
-const configData = require('../lib/config').configData
 const Jira = require('../lib/jira')
 const createList = require('../lib/create-list')
 
-var assert = require('assert')
 describe('create-list', function() {
   describe('#createList()', function() {
 
