@@ -42,12 +42,3 @@ var deleteChildren = function(issuekey) {
 }
 
 deleteChildren(issuekey);
-
-
-/*
-fs.readFile('./portfolio_test.csv', function (err, fileData) {
-  parse(fileData, {columns: true, trim: true}, function(err, data) {
-    extractColumns(data);
-  });
-});
-*/
