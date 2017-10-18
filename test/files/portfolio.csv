@@ -1,0 +1,5 @@
+﻿"Hierarchy","Title","Description","Project","Releases","Teams","Members","Sprints","Earliest start","Target start","Scheduled start","Target end","Scheduled end","Estimates (h)","Original Estimates (h)","Parent","Labels","Components","Themes","Issue key","Issue status","Progress (%)","Progress completed","Progress remaining"
+"Milestone","Milestone A","","Release A","Later","A Team","A Member","","","","23/Oct/17","","09/Nov/17","120","","","","","Web","MECTEST-1","Triage","0","0","432000"
+"Task","Implementation","","Release A","Later","A Team","A Member","","","","23/Oct/17","","10/Nov/17","120","","C","","","Web","MECTEST-2","Triage","0","0","432000"
+"Milestone","Milestone B","","Release B","Later","A Team","A Member","","","","13/Nov/17","","01/Dec/17","120","","","","","Web","MECTEST-3","Triage","0","0","432000"
+"Task","Implementation","","Release B","Later","A Team","A Member","","","","13/Nov/17","","02/Dec/17","120","","","","","Web","MECTEST-4","Triage","0","0","432000"

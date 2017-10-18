@@ -47,7 +47,8 @@ describe('create-list', function() {
           description: "This is a task about gamma",
           epic: "MECTEST-1"
         })
+      getClientStub.restore()
+      createIssueStub.restore()
     })
-
   })
 })
