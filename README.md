@@ -70,8 +70,8 @@ values under 'sites' to create three Bug issues under the Epic "MEC-1" with the
 above properties, with these summaries:
 
 1. Fix missing meta description tag
-* Fix incorrect Facebook Open Graph image
-* Fix wrong Google Tag Manager container ID
+2. Fix incorrect Facebook Open Graph image
+3. Fix wrong Google Tag Manager container ID
 
 ## portfolio
 _Update JIRA issues from a JIRA Portfolio export CSV file._
