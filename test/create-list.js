@@ -2,17 +2,18 @@ var sinon = require('sinon')
 var assert = require('assert')
 
 const Jira = require('../lib/jira')
-const createList = require('../lib/create-list')
+const CreateList = require('../lib/create-list')
 
-describe('create-list', function() {
-  describe('#createList()', function() {
+describe('CreateList', function() {
+  describe('#process()', function() {
 
     it('should make repeated calls to jira.createIssue.',
     async function() {
       var getClientStub = sinon.stub(Jira.prototype, "getClient");
       var createIssueStub = sinon.stub(Jira.prototype, "createIssue").
         resolves({issueKey: 'ABC-123'})
-      await createList.createList({silent: true}, 'test/files/create-list.yml')
+      var createList = new CreateList({silent: true})
+      await createList.process('test/files/create-list.yml')
       sinon.assert.callCount(createIssueStub, 4)
       sinon.assert.calledWith(createIssueStub,
         {

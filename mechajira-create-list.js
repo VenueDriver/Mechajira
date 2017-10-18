@@ -5,7 +5,7 @@ var chalk = require('chalk');
 // Returns a hash of configuration values.
 const configData = require('./lib/config').configData;
 // Performs the create-list operation.
-const createList = require('./lib/create-list').createList;
+const CreateList = require('./lib/create-list');
 
 program
   .description('Create a list of JIRA issues from a YAML command file.')
@@ -19,7 +19,8 @@ program
   .option('-s, --silent', "Don't log anything unless there is an error.")
   .action(function (file) {
     try {
-      createList(configData(program), file);
+      var createList = new CreateList(configData(program))
+      createList.process(file);
     } catch (e) {
       console.log(chalk.bold.red(e));
     }

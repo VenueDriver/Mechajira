@@ -5,7 +5,7 @@ var chalk = require('chalk');
 // Returns a hash of configuration values.
 const configData = require('./lib/config').configData;
 // Performs the create-list operation.
-const portfolio = require('./lib/portfolio').portfolio;
+const Portfolio = require('./lib/portfolio');
 
 program
   .description('Create a list of JIRA issues from a YAML command file.')
@@ -19,7 +19,8 @@ program
   .option('-s, --silent', "Don't log anything unless there is an error.")
   .action(function (file) {
     try {
-      portfolio(configData(program), file);
+      var portfolio = new Portfolio(configData(program))
+      portfolio.process(file);
     } catch (e) {
       console.log(chalk.bold.red(e));
     }
