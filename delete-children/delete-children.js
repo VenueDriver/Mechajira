@@ -32,14 +32,14 @@ var getIssue = function(issuekey) {
 var findChildren = function(issuekey) {
   console.log(`Searching for children of ${issuekey}...`);
   jira.search.search({
-    'jql': "cf[11100]=" + `${issuekey}`
+    'jql': "cf[10008]=" + `${issuekey}`
   },
   function(error, childIssues) {
     if (error) {
       console.log(error);
       return;
     } else {
-      console.log(`Got ${childIssues}!`);
+      console.log(childIssues);
     }
   });
 }
