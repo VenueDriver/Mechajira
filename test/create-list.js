@@ -55,15 +55,16 @@ describe('CreateList', function() {
 
   describe('#mergedIssueFromCommonValues()', function() {
 
-    it('should return a combined issue hash.', function() {
+    it('should return a combined issue hash.',
+    async function() {
       var createList = new CreateList({silent: true})
-      const mergedIssue = createList.mergedIssueFromCommonValues(
+      const mergedIssue = await createList.mergedIssueFromCommonValues(
         // Common fields.
         {
           'project': 'PROJECT',
           'issuetype': 'Task',
-          'description': 'DESCRIPTION',
-          'epic': 'MEC-1'
+          'epic': 'MEC-1',
+          'description': 'DESCRIPTION'
         },
         // Fields for this specific issue.
         {
@@ -72,15 +73,44 @@ describe('CreateList', function() {
       )
       assert.deepEqual(
         {
-          'summary': 'SUMMARY',
           'project': 'PROJECT',
           'issuetype': 'Task',
+          'epic': 'MEC-1',
           'description': 'DESCRIPTION',
-          'epic': 'MEC-1'
+          'summary': 'SUMMARY'
         },
         mergedIssue
       )
     })
-  })
 
+    it('should interpolate values from the issue fields into the common fields.',
+    async function() {
+      var createList = new CreateList({silent: true})
+      const mergedIssue = await createList.mergedIssueFromCommonValues(
+        // Common fields.
+        {
+          'project': 'PROJECT',
+          'issuetype': 'Task',
+          'epic': 'MEC-1',
+          'description': 'Fix {{summary}}',
+          'summary': 'Fix {{summary}}'
+        },
+        // Fields for this specific issue.
+        {
+          'summary': 'missing meta description tag',
+        }
+      )
+      assert.deepEqual(
+        {
+          'project': 'PROJECT',
+          'epic': 'MEC-1',
+          'issuetype': 'Task',
+          'description': 'Fix missing meta description tag',
+          'summary': 'Fix missing meta description tag'
+        },
+        mergedIssue
+      )
+    })
+
+  })
 })
