@@ -19,8 +19,8 @@ program
   .option('-s, --silent', "Don't log anything unless there is an error.")
   .action(function (file) {
     try {
-      editChildren(configData(program), file);
-
+      var editChildren = new editChildren(configData(program))
+      editChildren.process(file);
     } catch (e) {
       console.log(chalk.bold.red(e));
     }
