@@ -18,24 +18,24 @@ var deleteChildren = function(issuekey) {
   jira.search.search({
     'jql': "cf[10008]=" + `${issuekey}`
   },
-  function(error, childIssues) {
+  function(error, children) {
     if (error) {
       console.log(error);
       return;
     } else {
-      childIssues.issues.forEach(function(child) {
+      console.log(children.issues.length);
+      children.issues.forEach(function(child) {
         console.log(child.key);
-        jira.issue.deleteIssue({
-          "issueKey": child.key
-        },
-        function(error, result) {
-          if (error) {
-            console.log(error);
-            return;
-          } else {
-            console.log(`Deleted ${child.key}`);
-          }
-        })
+        // jira.issue.deleteIssue({
+        //   "issueKey": child.key
+        // },
+        // function(error, result) {
+        //   if (error) {
+        //     console.log(error);
+        //     return;
+        //   } else {
+        //     console.log(`Deleted ${child.key}`);
+        //   }
       })
     }
   })
