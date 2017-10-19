@@ -66,9 +66,9 @@ The ```summary-list.yml``` file should look something like this:
     summary: Fix {{summary}}
     description: More text here...
     summaries:
-     - missing meta description tag
-     - incorrect Facebook Open Graph image
-     - wrong Google Tag Manager container ID
+      - missing meta description tag
+      - incorrect Facebook Open Graph image
+      - wrong Google Tag Manager container ID
 
 Using the example config.yml file above, mechajira-loop.js will iterate over the
 values under 'sites' to create three Bug issues under the Epic "MEC-1" with the
