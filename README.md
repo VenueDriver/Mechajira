@@ -49,16 +49,21 @@ on something, so you open a "QA on Something" epic, and you start taking notes.
 You can list your issues in the YAML file during QA and then run this command at
 the end to create a list of Bug issues all at once.
 
+### Create issues from a list of summaries
+
+With this option, you can specify a "summaries" list in the YAML file.  Each new
+issue created will also include the common fields at the top of the YAML file.
+
 Example:
 
-    mechajira create-loop list.yml
+    mechajira create-loop summary-list.yml
 
-The list.yml file should look something like this:
+The ```summary-list.yml``` file should look something like this:
 
-    project: MEC          // Jira Project key
-    epic: MEC-1           // Jira Epic key
-    issuetype: Bug        // Jira issue type
-    summary: Fix
+    project: MEC          # Jira Project key
+    epic: MEC-1           # Jira Epic key
+    issuetype: Bug        # Jira issue type
+    summary: Fix {{summary}}
     description: More text here...
     summaries:
      - missing meta description tag
@@ -72,6 +77,30 @@ above properties, with these summaries:
 1. ```Fix missing meta description tag```
 2. ```Fix incorrect Facebook Open Graph image```
 3. ```Fix wrong Google Tag Manager container ID```
+
+### Create issues from a list of issues
+
+With this option, you can specify an "issues" hash in the YAML file.  Instead of a list of summaries.  You can specify any arbitrary fields in those issue hashes.  As long as JIRA is happy with it.
+
+You can use this to create a list of different issue types.  Maybe you have a standard JIRA Epic template that
+
+Example:
+
+    mechajira create-loop issue-list.yml
+
+The ```issue-list.yml``` file should look something like this:
+
+    project: MEC
+    epic: MEC-1
+    issues:
+      - issuetype: Story
+        summary: As a user I want to log in
+      - issuetype: Story
+        summary: As a user I want to log out
+      - issuetype: Task
+        summary: Implement authentication stories
+      - issuetype: Approval
+        summary: QA approval
 
 ## portfolio
 _Update JIRA issues from a JIRA Portfolio export CSV file._
