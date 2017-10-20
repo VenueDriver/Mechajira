@@ -59,7 +59,7 @@ describe('CreateList', function() {
         resolves({issueKey: 'ABC-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-issues.yml')
-      sinon.assert.callCount(createIssueStub, 3)
+      sinon.assert.callCount(createIssueStub, 6)
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
@@ -74,7 +74,8 @@ describe('CreateList', function() {
           issuetype: "Task",
           summary: "Do something about beta",
           description: "This is a task about BETA",
-          epic: "MECTEST-1"
+          epic: "MECTEST-1",
+          labels: ["show-stopper", "critical-1"]
         })
       sinon.assert.calledWith(createIssueStub,
         {

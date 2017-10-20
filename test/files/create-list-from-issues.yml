@@ -9,6 +9,13 @@ issues:
   - summary: beta
     description: BETA
     issuetype: Task
+    labels:
+      - show-stopper
+      - critical-1
   - summary: gamma
     description: GAMMA
     issuetype: Bug
+    subtasks:
+      - summary: one
+      - summary: two
+      - summary: three

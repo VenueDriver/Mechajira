@@ -82,7 +82,8 @@ above properties, with these summaries:
 
 With this option, you can specify an "issues" hash in the YAML file.  Instead of a list of summaries.  You can specify any arbitrary fields in those issue hashes.  As long as JIRA is happy with it.
 
-You can use this to create a list of different issue types.  Maybe you have a standard JIRA Epic template that
+You can use this to create a list of different issue types.  Maybe you have a standard JIRA Epic template that includes Stories, Tasks, and other things.  It
+even supports Sub-Tasks.
 
 Example:
 
@@ -99,8 +100,19 @@ The ```issue-list.yml``` file should look something like this:
         summary: As a user I want to log out
       - issuetype: Task
         summary: Implement authentication stories
+        subtasks:
+          - summary: one
+            description: This is one.
+          - summary: two
+            description: This is two.
+            labels:
+              - authentication
+              - two
       - issuetype: Approval
         summary: QA approval
+        labels:
+         - QA
+         - required
 
 ## portfolio
 _Update JIRA issues from a JIRA Portfolio export CSV file._
