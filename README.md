@@ -160,6 +160,11 @@ From the project folder, run the tests with:
 
     npm test
 
+If you're doing development on Mechajira, you can watch source files and
+automatically re-run tests when anything changes:
+
+    npm run test-watch
+
 To calculate test coverage and update Coveralls:
 
     npm run coverage
