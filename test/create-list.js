@@ -3,15 +3,18 @@ var assert = require('assert')
 
 const Jira = require('../lib/jira')
 const CreateList = require('../lib/create-list')
+var sandbox = sinon.sandbox.create();
 
 describe('CreateList', function() {
 
   describe('#process()', function() {
 
+    afterEach(function () { sandbox.restore(); });
+
     it('should create JIRA issues from a YAML list of summaries.',
     async function() {
-      var getClientStub = sinon.stub(Jira.prototype, "getClient");
-      var createIssueStub = sinon.stub(Jira.prototype, "createIssue").
+      var getClientStub = sandbox.stub(Jira.prototype, "getClient");
+      var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
         resolves({issueKey: 'ABC-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-summaries.yml')
@@ -54,8 +57,8 @@ describe('CreateList', function() {
 
     it('should create JIRA issues from a YAML list of issue hashes.',
     async function() {
-      var getClientStub = sinon.stub(Jira.prototype, "getClient");
-      var createIssueStub = sinon.stub(Jira.prototype, "createIssue").
+      var getClientStub = sandbox.stub(Jira.prototype, "getClient");
+      var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
         resolves({issueKey: 'ABC-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-issues.yml')
