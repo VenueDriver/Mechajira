@@ -1,12 +1,16 @@
-project: MECTEST
-epic: MECTEST-1
-summary: Do something about {{summary}}
-description: This is a task about {{description}}
+# Each new issue will include these common elements.
+template:
+  project: MECTEST
+  epic: MECTEST-1
+  summary: Do something about {{summary}}
+  description: This is a task about {{description}}
+# Create this list of issues.
 issues:
   - summary: alpha
     description: ALPHA
     issuetype: Story
   - summary: beta
+    id: second
     description: BETA
     issuetype: Task
     labels:
@@ -19,3 +23,7 @@ issues:
       - summary: one
       - summary: two
       - summary: three
+    links:
+      - 'Is blocked by':
+        - alpha  # Link by summary.
+        - second # Link by ID.
