@@ -15,7 +15,7 @@ describe('CreateList', function() {
     async function() {
       var getClientStub = sandbox.stub(Jira.prototype, "getClient");
       var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
-        resolves({issueKey: 'ABC-123'})
+        resolves({key: 'ABC-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-summaries.yml')
       sinon.assert.callCount(createIssueStub, 4)
@@ -57,7 +57,7 @@ describe('CreateList', function() {
     async function() {
       var getClientStub = sandbox.stub(Jira.prototype, "getClient");
       var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
-        resolves({issueKey: 'MECTEST-123'})
+        resolves({key: 'MECTEST-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-issues.yml')
       sinon.assert.callCount(createIssueStub, 6)
@@ -100,7 +100,7 @@ describe('CreateList', function() {
     async function() {
       var getClientStub = sandbox.stub(Jira.prototype, "getClient");
       var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
-        resolves({issueKey: 'MECTEST-123'})
+        resolves({key: 'MECTEST-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-of-epics.yml')
       sinon.assert.callCount(createIssueStub, 13)

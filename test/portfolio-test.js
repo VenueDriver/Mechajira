@@ -15,7 +15,7 @@ describe('Portfolio', function() {
     async function() {
       var getClientStub = sandbox.stub(Jira.prototype, "getClient");
       var editIssueStub = sandbox.stub(Jira.prototype, "editIssue").
-        resolves({issueKey: 'ABC-123', fields: {'duedate': '2017-10-26'}})
+        resolves({key: 'ABC-123', fields: {'duedate': '2017-10-26'}})
       var portfolio = new Portfolio({silent: true})
       await portfolio.process('test/files/portfolio.csv')
       sinon.assert.callCount(editIssueStub, 4)
