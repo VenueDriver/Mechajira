@@ -1,0 +1,38 @@
+# Create new epics, with issues nested under them.
+template:
+  project: MECTEST
+issues:
+  - issuetype: Epic
+    summary: Design
+    description: Design some magic!
+    issues:
+      - issuetype: Task
+        summary: Sketch some magic.
+      - issuetype: Task
+        summary: Revise the magic.
+      - issuetype: Approval
+        summary: Marketing approval.
+  - issuetype: Epic
+    summary: Implementation
+    description: Implement some magic!
+    issues:
+      - issuetype: Story
+        summary: Some magic happens.
+      - issuetype: Task
+        summary: Make some magic.
+        sub-tasks:
+          - summary: one
+          - summary: two
+          - summary: three
+  - issuetype: Epic
+    summary: QA
+    description: Test the magic!
+    issues:
+      - issuetype: Task
+        summary: Test one
+      - issuetype: Task
+        summary: Test two
+    links:
+      - 'Is blocked by':
+        - Design
+        - Implementation

@@ -95,6 +95,89 @@ describe('CreateList', function() {
           description: "one"
         })
     })
+
+    it('should create epics with nested issues under them.',
+    async function() {
+      var getClientStub = sandbox.stub(Jira.prototype, "getClient");
+      var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
+        resolves({issueKey: 'MECTEST-123'})
+      var createList = new CreateList({silent: true})
+      await createList.process('test/files/create-list-of-epics.yml')
+      sinon.assert.callCount(createIssueStub, 13)
+      sinon.assert.calledWith(createIssueStub,
+        {
+          project: "MECTEST",
+          issuetype: "Epic",
+          summary: "Design",
+          description: "Design some magic!"
+        })
+        sinon.assert.calledWith(createIssueStub,
+          {
+            project: "MECTEST",
+            issuetype: "Task",
+            summary: "Sketch some magic.",
+            description: "Sketch some magic."
+          })
+        sinon.assert.calledWith(createIssueStub,
+          {
+            project: "MECTEST",
+            issuetype: "Task",
+            summary: "Revise the magic.",
+            description: "Revise the magic."
+          })
+        sinon.assert.calledWith(createIssueStub,
+          {
+            project: "MECTEST",
+            issuetype: "Approval",
+            summary: "Marketing approval.",
+            description: "Marketing approval."
+          })
+      sinon.assert.calledWith(createIssueStub,
+        {
+          project: "MECTEST",
+          issuetype: "Epic",
+          summary: "Design",
+          description: "Design some magic!"
+        })
+        sinon.assert.calledWith(createIssueStub,
+          {
+            project: "MECTEST",
+            issuetype: "Story",
+            summary: "Some magic happens.",
+            description: "Some magic happens."
+          })
+        sinon.assert.calledWith(createIssueStub,
+          {
+            project: "MECTEST",
+            issuetype: "Task",
+            summary: "Make some magic.",
+            description: "Make some magic."
+          })
+          sinon.assert.calledWith(createIssueStub,
+            {
+              project: "MECTEST",
+              issuetype: "Sub-task",
+              parent: 'MECTEST-123',
+              summary: "one",
+              description: "one"
+            })
+          sinon.assert.calledWith(createIssueStub,
+            {
+              project: "MECTEST",
+              issuetype: "Sub-task",
+              parent: 'MECTEST-123',
+              summary: "one",
+              description: "one"
+            })
+          sinon.assert.calledWith(createIssueStub,
+            {
+              project: "MECTEST",
+              issuetype: "Sub-task",
+              parent: 'MECTEST-123',
+              summary: "one",
+              description: "one"
+            })
+    })
   })
 
   describe('#mergedIssueFromCommonValues()', function() {
