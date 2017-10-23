@@ -8,17 +8,17 @@ template:
 issues:
   - summary: alpha
     description: ALPHA
-    issuetype: Story
+    type: Story
   - summary: beta
     id: second
     description: BETA
-    issuetype: Task
+    type: Task
     labels:
       - show-stopper
       - critical-1
   - summary: gamma
     description: GAMMA
-    issuetype: Bug
+    type: Bug
     sub-tasks:
       - summary: one
       - summary: two

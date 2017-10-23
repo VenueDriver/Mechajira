@@ -22,7 +22,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Task",
+          type: "Task",
           summary: "Do something about alpha",
           description: "This is a task about alpha",
           epic: "MECTEST-1"
@@ -30,7 +30,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Task",
+          type: "Task",
           summary: "Do something about beta",
           description: "This is a task about beta",
           epic: "MECTEST-1"
@@ -38,7 +38,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Task",
+          type: "Task",
           summary: "Do something about delta",
           description: "This is a task about delta",
           epic: "MECTEST-1"
@@ -46,7 +46,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Task",
+          type: "Task",
           summary: "Do something about gamma",
           description: "This is a task about gamma",
           epic: "MECTEST-1"
@@ -64,7 +64,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Story",
+          type: "Story",
           summary: "Do something about alpha",
           description: "This is a task about ALPHA",
           epic: "MECTEST-1"
@@ -72,7 +72,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Task",
+          type: "Task",
           summary: "Do something about beta",
           description: "This is a task about BETA",
           epic: "MECTEST-1",
@@ -81,7 +81,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Bug",
+          type: "Bug",
           summary: "Do something about gamma",
           description: "This is a task about GAMMA",
           epic: "MECTEST-1"
@@ -89,7 +89,7 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Sub-task",
+          type: "Sub-task",
           parent: 'MECTEST-123',
           summary: "one",
           description: "one"
@@ -107,56 +107,61 @@ describe('CreateList', function() {
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Epic",
+          type: "Epic",
           summary: "Design",
           description: "Design some magic!"
         })
         sinon.assert.calledWith(createIssueStub,
           {
             project: "MECTEST",
-            issuetype: "Task",
+            type: "Task",
             summary: "Sketch some magic.",
-            description: "Sketch some magic."
+            description: "Sketch some magic.",
+            epic: 'MECTEST-123'
           })
         sinon.assert.calledWith(createIssueStub,
           {
             project: "MECTEST",
-            issuetype: "Task",
+            type: "Task",
             summary: "Revise the magic.",
-            description: "Revise the magic."
+            description: "Revise the magic.",
+            epic: 'MECTEST-123'
           })
         sinon.assert.calledWith(createIssueStub,
           {
             project: "MECTEST",
-            issuetype: "Approval",
+            type: "Approval",
             summary: "Marketing approval.",
-            description: "Marketing approval."
+            description: "Marketing approval.",
+            epic: 'MECTEST-123'
           })
       sinon.assert.calledWith(createIssueStub,
         {
           project: "MECTEST",
-          issuetype: "Epic",
+          type: "Epic",
           summary: "Design",
           description: "Design some magic!"
         })
         sinon.assert.calledWith(createIssueStub,
           {
             project: "MECTEST",
-            issuetype: "Story",
+            type: "Story",
             summary: "Some magic happens.",
-            description: "Some magic happens."
+            description: "Some magic happens.",
+            epic: 'MECTEST-123'
           })
         sinon.assert.calledWith(createIssueStub,
           {
             project: "MECTEST",
-            issuetype: "Task",
+            type: "Task",
             summary: "Make some magic.",
-            description: "Make some magic."
+            description: "Make some magic.",
+            epic: 'MECTEST-123'
           })
           sinon.assert.calledWith(createIssueStub,
             {
               project: "MECTEST",
-              issuetype: "Sub-task",
+              type: "Sub-task",
               parent: 'MECTEST-123',
               summary: "one",
               description: "one"
@@ -164,7 +169,7 @@ describe('CreateList', function() {
           sinon.assert.calledWith(createIssueStub,
             {
               project: "MECTEST",
-              issuetype: "Sub-task",
+              type: "Sub-task",
               parent: 'MECTEST-123',
               summary: "one",
               description: "one"
@@ -172,7 +177,7 @@ describe('CreateList', function() {
           sinon.assert.calledWith(createIssueStub,
             {
               project: "MECTEST",
-              issuetype: "Sub-task",
+              type: "Sub-task",
               parent: 'MECTEST-123',
               summary: "one",
               description: "one"
@@ -189,7 +194,7 @@ describe('CreateList', function() {
         // Common fields.
         {
           'project': 'PROJECT',
-          'issuetype': 'Task',
+          'type': 'Task',
           'epic': 'MEC-1',
           'description': 'DESCRIPTION'
         },
@@ -201,7 +206,7 @@ describe('CreateList', function() {
       assert.deepEqual(
         {
           'project': 'PROJECT',
-          'issuetype': 'Task',
+          'type': 'Task',
           'epic': 'MEC-1',
           'description': 'DESCRIPTION',
           'summary': 'SUMMARY'
@@ -217,7 +222,7 @@ describe('CreateList', function() {
         // Common fields.
         {
           'project': 'PROJECT',
-          'issuetype': 'Task',
+          'type': 'Task',
           'epic': 'MEC-1',
           'description': 'Fix {{summary}}',
           'summary': 'Fix {{summary}}'
@@ -231,7 +236,7 @@ describe('CreateList', function() {
         {
           'project': 'PROJECT',
           'epic': 'MEC-1',
-          'issuetype': 'Task',
+          'type': 'Task',
           'description': 'Fix missing meta description tag',
           'summary': 'Fix missing meta description tag'
         },

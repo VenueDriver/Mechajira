@@ -2,35 +2,35 @@
 template:
   project: MECTEST
 issues:
-  - issuetype: Epic
+  - type: Epic
     summary: Design
     description: Design some magic!
     issues:
-      - issuetype: Task
+      - type: Task
         summary: Sketch some magic.
-      - issuetype: Task
+      - type: Task
         summary: Revise the magic.
-      - issuetype: Approval
+      - type: Approval
         summary: Marketing approval.
-  - issuetype: Epic
+  - type: Epic
     summary: Implementation
     description: Implement some magic!
     issues:
-      - issuetype: Story
+      - type: Story
         summary: Some magic happens.
-      - issuetype: Task
+      - type: Task
         summary: Make some magic.
         sub-tasks:
           - summary: one
           - summary: two
           - summary: three
-  - issuetype: Epic
+  - type: Epic
     summary: QA
     description: Test the magic!
     issues:
-      - issuetype: Task
+      - type: Task
         summary: Test one
-      - issuetype: Task
+      - type: Task
         summary: Test two
     links:
       - 'Is blocked by':

@@ -1,6 +1,6 @@
 project: MECTEST
 epic: MECTEST-1
-issuetype: Task
+type: Task
 summary: Do something about {{summary}}
 description: This is a task about {{summary}}
 summaries:
