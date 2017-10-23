@@ -10,7 +10,7 @@ const Portfolio = require('./lib/portfolio');
 program
   .description('Create a list of JIRA issues from a YAML command file.')
   .arguments('<file>')
-  .usage('[options] loop <file>')
+  .usage('[options] p <file>')
   .option('-h, --host <host>', "The host name of the JIRA instance.")
   .option('--port <port>', "The port for the JIRA instance connection.")
   .option('-u, --username <username>', "The JIRA user's username.")
