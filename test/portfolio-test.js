@@ -35,8 +35,6 @@ describe('Portfolio', function() {
           'MECTEST-4',
           { duedate: '2017-12-2' }
         )
-      getClientStub.restore()
-      editIssueStub.restore()
     })
 
   })
