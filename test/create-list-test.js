@@ -51,15 +51,13 @@ describe('CreateList', function() {
           description: "This is a task about gamma",
           epic: "MECTEST-1"
         })
-      getClientStub.restore()
-      createIssueStub.restore()
     })
 
     it('should create JIRA issues from a YAML list of issue hashes.',
     async function() {
       var getClientStub = sandbox.stub(Jira.prototype, "getClient");
       var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
-        resolves({issueKey: 'ABC-123'})
+        resolves({issueKey: 'MECTEST-123'})
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-issues.yml')
       sinon.assert.callCount(createIssueStub, 6)
@@ -88,8 +86,14 @@ describe('CreateList', function() {
           description: "This is a task about GAMMA",
           epic: "MECTEST-1"
         })
-      getClientStub.restore()
-      createIssueStub.restore()
+      sinon.assert.calledWith(createIssueStub,
+        {
+          project: "MECTEST",
+          issuetype: "Sub-task",
+          parent: 'MECTEST-123',
+          summary: "one",
+          description: "one"
+        })
     })
   })
 

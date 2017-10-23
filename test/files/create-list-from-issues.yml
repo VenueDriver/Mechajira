@@ -19,7 +19,7 @@ issues:
   - summary: gamma
     description: GAMMA
     issuetype: Bug
-    subtasks:
+    sub-tasks:
       - summary: one
       - summary: two
       - summary: three
