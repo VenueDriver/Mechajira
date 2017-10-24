@@ -9,6 +9,10 @@ issues:
   - summary: alpha
     description: ALPHA
     type: Story
+    links:
+      - Blocks:
+        - second  # Link by ID.
+        - gamma   # Link by summary.
   - summary: beta
     id: second
     description: BETA
@@ -23,7 +27,3 @@ issues:
       - summary: one
       - summary: two
       - summary: three
-    links:
-      - 'Is blocked by':
-        - alpha  # Link by summary.
-        - second # Link by ID.

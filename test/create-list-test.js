@@ -58,6 +58,7 @@ describe('CreateList', function() {
       var getClientStub = sandbox.stub(Jira.prototype, "getClient");
       var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
         resolves({key: 'MECTEST-123'})
+      var linkIssueStub = sandbox.stub(Jira.prototype, "linkIssue")
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-from-issues.yml')
       sinon.assert.callCount(createIssueStub, 6)
@@ -98,9 +99,10 @@ describe('CreateList', function() {
 
     it('should create epics with nested issues under them.',
     async function() {
-      var getClientStub = sandbox.stub(Jira.prototype, "getClient");
+      var getClientStub = sandbox.stub(Jira.prototype, "getClient")
       var createIssueStub = sandbox.stub(Jira.prototype, "createIssue").
         resolves({key: 'MECTEST-123'})
+      var linkIssueStub = sandbox.stub(Jira.prototype, "linkIssue")
       var createList = new CreateList({silent: true})
       await createList.process('test/files/create-list-of-epics.yml')
       sinon.assert.callCount(createIssueStub, 13)

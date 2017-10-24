@@ -20,7 +20,9 @@ program
   .action(async function (key) {
     try {
       var jira = new Jira(configData(program))
-      console.dir(await jira.readIssue(key));
+      var issue = await jira.readIssue(key);
+      console.dir(issue);
+      console.log(JSON.stringify(issue.fields.issuelinks))
     } catch (e) {
       console.log(chalk.bold.red(e));
     }
