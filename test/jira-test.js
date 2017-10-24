@@ -23,7 +23,7 @@ describe('jira', function() {
       var jira = new Jira(configData({}, 'test/files/config.yml'))
       var issueData = {
         'project': 'PROJECT',
-        'issuetype': 'Task',
+        'type': 'Task',
         'summary': 'SUMMARY',
         'description': 'DESCRIPTION',
         'epic': 'MECTEST-1'

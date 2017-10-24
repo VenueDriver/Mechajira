@@ -1,21 +1,29 @@
-project: MECTEST
-epic: MECTEST-1
-summary: Do something about {{summary}}
-description: This is a task about {{description}}
+# Each new issue will include these common elements.
+template:
+  project: MECTEST
+  epic: MECTEST-1 # Assumes that this epic already exists.
+  summary: Do something about {{summary}}
+  description: This is a task about {{description}}
+# Create this list of issues.
 issues:
   - summary: alpha
     description: ALPHA
-    issuetype: Story
+    type: Story
+    links:
+      - Blocks:
+        - second  # Link by ID.
+        - gamma   # Link by summary.
   - summary: beta
+    id: second
     description: BETA
-    issuetype: Task
+    type: Task
     labels:
       - show-stopper
       - critical-1
   - summary: gamma
     description: GAMMA
-    issuetype: Bug
-    subtasks:
+    type: Bug
+    sub-tasks:
       - summary: one
       - summary: two
       - summary: three
