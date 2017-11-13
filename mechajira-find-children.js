@@ -10,7 +10,7 @@ const Jira = require('./lib/jira');
 program
   .description('Print the child issues under a given parent issue.')
   .arguments('<key>')
-  .usage('[options] r <key>')
+  .usage('[options] fc <key>')
   .option('-h, --host <host>', "The host name of the JIRA instance.")
   .option('--port <port>', "The port for the JIRA instance connection.")
   .option('-u, --username <username>', "The JIRA user's username.")
@@ -21,7 +21,6 @@ program
     try {
       var jira = new Jira(configData(program))
       var issue = await jira.findChildren(key);
-      console.dir(issue);
     } catch (e) {
       console.log(chalk.bold.red(e));
     }
