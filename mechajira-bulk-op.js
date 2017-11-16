@@ -7,12 +7,12 @@ const configData = require('./lib/config').configData;
 // Performs the API call.
 const Jira = require('./lib/jira');
 // Performs the create-list operation.
-const BulkOpChildren = require('./lib/bulk-op-children');
+const BulkOp = require('./lib/bulk-op');
 
 program
-  .description('Perform bulk operation on all children of a parent.')
+  .description('Perform bulk operation on all descendents of a parent issue.')
   .arguments('<key> <operation> [fields...]')
-  .usage('[options] boc <key> <operation> [fields]')
+  .usage('[options] bo <key> <operation> [fields]')
   .option('-h, --host <host>', "The host name of the JIRA instance.")
   .option('--port <port>', "The port for the JIRA instance connection.")
   .option('-u, --username <username>', "The JIRA user's username.")
@@ -26,12 +26,12 @@ program
   .option('-dd, --duedate <duedate>', "New duedate for tasks.")
   .action(function (key, op, fields) {
     try {
-      var bulkOpChildren = new BulkOpChildren(configData(program));
+      var bulkOp = new BulkOp(configData(program));
       if (fields) {
-        bulkOpChildren.process(key, op, fields);
+        bulkOp.process(key, op, fields);
       } else {
         console.log("Performing bulk operation...")
-        bulkOpChildren.process(key, op);
+        bulkOp.process(key, op);
       }
     } catch (e) {
       console.log(chalk.bold.red(e));

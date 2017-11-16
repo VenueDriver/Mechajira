@@ -9,5 +9,5 @@ program
   .command('read-issue [options] <key>', 'Print the data for a given issue in JSON form.').alias('r')
   .command('find-children [options] <key>', 'Find all children of a parent issue.').alias('fc')
   .command('edit-children [options] <key> <file>', 'Edit all children of a parent with fields set in a YAML command file.').alias('ec')
-  .command('bulk-op-children [options] <key> <file>', 'Perform bulk operation on all children of a parent.').alias('boc')
+  .command('bulk-op [options] <key> <command> [fields...]', 'Perform bulk operation on all descendents of a parent.').alias('bo')
   .parse(process.argv);
