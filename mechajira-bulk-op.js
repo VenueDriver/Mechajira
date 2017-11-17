@@ -11,7 +11,7 @@ const BulkOp = require('./lib/bulk-op');
 
 program
   .description('Perform bulk operation on all descendents of a parent issue.')
-  .arguments('<key> <operation> [fields...]')
+  .command('<key> <operation> [fields...]')
   .usage('[options] bo <key> <operation> [fields]')
   .option('-h, --host <host>', "The host name of the JIRA instance.")
   .option('--port <port>', "The port for the JIRA instance connection.")
