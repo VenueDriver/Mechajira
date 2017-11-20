@@ -22,6 +22,7 @@ program
   .option('-d, --del', "Delete all descendents under the ancestor (including the ancestor).")
   .option('-c, --close', "Close all descendents under the ancestor (including the ancestor).")
   .option('-t, --trans <transID>', "Transition all descendents under the ancestor (including the ancestor).")
+  .option('-gt, --gettrans', "Get a list of transitions available for a given issue.")
   .option('-e, --edit <fields...>', "Edit all descendents under the ancestor with the following fields/values.")
   .option('-a, --assignee <assignee>', "New assignee for tasks.")
   .option('-dd, --duedate <duedate>', "New duedate for tasks.")
